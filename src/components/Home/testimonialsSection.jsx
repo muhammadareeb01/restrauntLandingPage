@@ -1,10 +1,9 @@
-import React from 'react';
-import TestimonialSlider from '../../ui/slider';
-import { testimonials } from '../../data/data';
-import  wrapImage   from '../../assets/image.png';
+import React from "react";
+import TestimonialSlider from "../../ui/slider";
+import { testimonials } from "../../data/data";
+import wrapImage from "../../assets/image.png";
 
 function TestimonialSection() {
-  console.log('Testimonials data:', testimonials);
 
   return (
     <section className="py-8 md:py-12 lg:py-16 bg-gray-100">

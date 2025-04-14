@@ -1,552 +1,620 @@
 /* Main page container */
 .home-page {
-    background-color: #ffffff;
-    position: relative;
+  background-color: #ffffff;
+  position: relative;
+}
+
+/* Hero section styling */
+.hero-section {
+  position: relative;
+  min-height: 700px;
+  overflow: hidden;
+}
+
+/* Red semi-circle background at the top */
+.hero-red-curve {
+  width: 100%;
+  height: 700px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #e02424;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  z-index: 0;
+}
+
+/* Black inner semi-circle background */
+.hero-black-curve {
+  width: 96%;
+  height: 690px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+}
+
+/* Fills the black semi-circle with a dark background */
+.hero-image-fill {
+  width: 100%;
+  height: 100%;
+  background-color: #1a1a1a;
+}
+
+/* Container for Delivery Info and Discount Box, with masking */
+.discount-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 700px;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Delivery Info (Icon and Text) */
+.delivery-info {
+  position: absolute;
+  top: 85%;
+  right: 47%; /* Position to the left of the discount box */
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  z-index: 3;
+}
+
+/* Bike Icon styling */
+.bike-icon {
+  width: 3rem;
+  height: 3rem;
+  color: white;
+}
+
+/* Delivery Text styling */
+.delivery-text {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.delivery-text span {
+  display: block;
+}
+
+/* Wrapper for the Discount Box */
+.discount-rotator {
+  position: absolute;
+  top: 88%;
+  right: 40%;
+  transform: translateY(-50%) rotate(360deg);
+  z-index: 3;
+}
+
+/* Discount Box styling */
+.discount-box {
+  background-color: #e02424;
+  padding: 2rem 0.5rem;
+  z-index: 3;
+}
+
+/* Styling for the percentage and "OFF" text inside the discount box */
+.discount-box p {
+  display: inline;
+}
+
+/* Styling for the "20" in the discount box */
+.discount-box span {
+  color: white;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Main content area (Navbar, Image, Text) */
+.hero-content {
+  position: relative;
+  z-index: 4;
+  padding: 1rem 0;
+}
+
+/* Split layout for image and text in hero section */
+.hero-split {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Left side: Wraps image in hero section */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Right side: Welcome text and buttons in hero section */
+.hero-text {
+  flex: 1;
+  margin-top: -3rem;
+  text-align: center;
+}
+
+.hero-text h1 {
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.hero-text p {
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  width: auto;
+}
+
+/* Buttons styling in hero section */
+.hero-text .flex {
+  gap: 1rem;
+}
+
+/* View Our Story Section */
+.story-section {
+  background-color: #ffffff;
+  padding: 3rem 0;
+}
+
+/* Split layout for story section */
+.story-split {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Left side: Wraps image in story section */
+.story-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.story-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Center: Story text */
+.story-text {
+  flex: 1;
+  text-align: right;
+}
+
+.story-text h2 {
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-family: "Playfair Display", serif; /* Match the font style from the image */
+}
+.story-text h2 span {
+    display: block; /* Ensures each span takes its own line */
   }
-  
-  /* Hero section styling */
+
+.story-text p {
+  margin-bottom: 1.5rem;
+}
+
+/* Right side: Circular food image */
+.story-food-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Wrapper for circular image with dashed border */
+.circle-image-wrapper {
+  width: 300px;
+  height: 300px;
+  border: 2px dashed #e02424;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
   .hero-section {
-    position: relative;
-    min-height: 700px;
-    overflow: hidden;
+    min-height: 600px;
   }
-  
-  /* Red semi-circle background at the top */
+
   .hero-red-curve {
-    width: 100%;
-    height: 700px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #e02424;
-    border-radius: 0 0 50% 50% / 0 0 100% 100%;
-    z-index: 0;
+    height: 600px;
+    border-radius: 0 0 45% 45% / 0 0 90% 90%;
   }
-  
-  /* Black inner semi-circle background */
+
   .hero-black-curve {
-    width: 96%;
-    height: 690px;
-    margin: 0 auto;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    height: 590px;
+    width: 95%;
+    border-radius: 0 0 45% 45% / 0 0 90% 90%;
   }
-  
-  /* Fills the black semi-circle with a dark background */
-  .hero-image-fill {
-    width: 100%;
-    height: 100%;
-    background-color: #1a1a1a;
-  }
-  
-  /* Container for Delivery Info and Discount Box, with masking */
+
   .discount-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 700px;
-    border-radius: 0 0 50% 50% / 0 0 100% 100%;
-    overflow: hidden;
-    z-index: 2;
+    height: 600px;
+    border-radius: 0 0 45% 45% / 0 0 90% 90%;
   }
-  
-  /* Delivery Info (Icon and Text) */
+
   .delivery-info {
-    position: absolute;
-    top: 85%;
-    right: 47%; /* Position to the left of the discount box */
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    z-index: 3;
+    right: 50%; /* Adjust for tablets */
   }
-  
-  /* Bike Icon styling */
-  .bike-icon {
-    width: 3rem;
-    height: 3rem;
-    color: white;
-  }
-  
-  /* Delivery Text styling */
-  .delivery-text {
-    display: flex;
-    flex-direction: column;
-    color: white;
-    font-weight: bold;
-    font-size: 1.25rem;
-    line-height: 1.2;
-  }
-  
-  .delivery-text span {
-    display: block;
-  }
-  
-  /* Wrapper for the Discount Box */
+
   .discount-rotator {
-    position: absolute;
-    top: 88%;
-    right: 40%;
-    transform: translateY(-50%) rotate(360deg);
-    z-index: 3;
+    right: 30%;
   }
-  
-  /* Discount Box styling */
-  .discount-box {
-    background-color: #e02424;
-    padding: 2rem 0.5rem;
-    z-index: 3;
-  }
-  
-  /* Styling for the percentage and "OFF" text inside the discount box */
-  .discount-box p {
-    display: inline;
-  }
-  
-  /* Styling for the "20" in the discount box */
-  .discount-box span {
-    color: white;
-    font-weight: bold;
-    display: block;
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  /* Main content area (Navbar, Image, Text) */
-  .hero-content {
-    position: relative;
-    z-index: 4;
-    padding: 1rem 0;
-  }
-  
-  /* Split layout for image and text in hero section */
-  .hero-split {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  
-  /* Left side: Wraps image in hero section */
-  .hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
-  }
-  
-  .hero-image img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  /* Right side: Welcome text and buttons in hero section */
-  .hero-text {
-    flex: 1;
-    margin-top: -3rem;
-    text-align: center;
-  }
-  
+
   .hero-text h1 {
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    display: inline-block;
+    font-size: 3.5rem;
   }
-  
+
   .hero-text p {
-    margin-bottom: 1.5rem;
-    display: inline-block;
-    width: auto;
+    font-size: 1rem;
   }
-  
-  /* Buttons styling in hero section */
+
+  .hero-content {
+    padding: 0.75rem 0;
+  }
+
+  .discount-box {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .discount-box span {
+    font-size: 0.9rem;
+  }
+
+  .bike-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .delivery-text {
+    font-size: 1rem;
+  }
+
+  .hero-split {
+    gap: 0.75rem;
+  }
+
+  .hero-image,
+  .hero-text {
+    margin-top: -2rem;
+  }
+
+  .story-section {
+    padding: 2rem 0;
+  }
+
+  .story-split {
+    gap: 1.5rem;
+  }
+
+  .circle-image-wrapper {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 800px;
+  }
+
+  .hero-red-curve {
+    height: 800px;
+    border-radius: 0 0 40% 40% / 0 0 80% 80%;
+  }
+
+  .hero-black-curve {
+    height: 790px;
+    width: 94%;
+    border-radius: 0 0 40% 40% / 0 0 80% 80%;
+  }
+
+  .discount-wrapper {
+    height: 800px;
+    border-radius: 0 0 40% 40% / 0 0 80% 80%;
+  }
+
+  .delivery-info {
+    right: 45%; /* Adjust for mobile */
+  }
+
+  .discount-rotator {
+    right: 25%;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-text p {
+    font-size: 0.875rem;
+    margin: 0 auto;
+  }
+
+  .hero-content {
+    padding: 0.5rem 0;
+  }
+
+  .hero-split {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hero-image,
+  .hero-text {
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .hero-image {
+    margin-bottom: 1rem;
+  }
+
   .hero-text .flex {
+    flex-direction: row;
+    justify-content: center;
     gap: 1rem;
   }
-  
-  /* View Our Story Section */
-  .story-section {
-    background-color: #ffffff;
-    padding: 3rem 0;
+
+  .hero-text .flex a {
+    width: 30%;
+    text-align: center;
+    padding: 0.75rem 0;
   }
-  
-  /* Split layout for story section */
+
+  .discount-box {
+    padding: 0.3rem 0.6rem;
+  }
+
+  .discount-box span {
+    font-size: 0.8rem;
+  }
+
+  .bike-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .delivery-text {
+    font-size: 0.875rem;
+  }
+
   .story-split {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 1rem;
   }
-  
-  /* Left side: Wraps image in story section */
-  .story-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .story-image img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  /* Center: Story text */
-  .story-text {
-    flex: 1;
+
+  .story-image,
+  .story-text,
+  .story-food-image {
+    width: 100%;
     text-align: center;
   }
-  
-  .story-text h2 {
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    font-family: "Playfair Display", serif; /* Match the font style from the image */
-  }
-  
-  .story-text p {
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Right side: Circular food image */
-  .story-food-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-  
-  /* Wrapper for circular image with dashed border */
+
   .circle-image-wrapper {
-    width: 300px;
-    height: 300px;
-    border: 2px dashed #e02424;
-    border-radius: 50%;
-    overflow: hidden;
+    width: 200px;
+    height: 200px;
   }
-  
-  /* Responsive Styles */
-  @media (max-width: 1024px) {
-    .hero-section {
-      min-height: 600px;
-    }
-  
-    .hero-red-curve {
-      height: 600px;
-      border-radius: 0 0 45% 45% / 0 0 90% 90%;
-    }
-  
-    .hero-black-curve {
-      height: 590px;
-      width: 95%;
-      border-radius: 0 0 45% 45% / 0 0 90% 90%;
-    }
-  
-    .discount-wrapper {
-      height: 600px;
-      border-radius: 0 0 45% 45% / 0 0 90% 90%;
-    }
-  
-    .delivery-info {
-      right: 50%; /* Adjust for tablets */
-    }
-  
-    .discount-rotator {
-      right: 30%;
-    }
-  
-    .hero-text h1 {
-      font-size: 3.5rem;
-    }
-  
-    .hero-text p {
-      font-size: 1rem;
-    }
-  
-    .hero-content {
-      padding: 0.75rem 0;
-    }
-  
-    .discount-box {
-      padding: 0.4rem 0.8rem;
-    }
-  
-    .discount-box span {
-      font-size: 0.9rem;
-    }
-  
-    .bike-icon {
-      width: 2.5rem;
-      height: 2.5rem;
-    }
-  
-    .delivery-text {
-      font-size: 1rem;
-    }
-  
-    .hero-split {
-      gap: 0.75rem;
-    }
-  
-    .hero-image,
-    .hero-text {
-      margin-top: -2rem;
-    }
-  
-    .story-section {
-      padding: 2rem 0;
-    }
-  
-    .story-split {
-      gap: 1.5rem;
-    }
-  
-    .circle-image-wrapper {
-      width: 250px;
-      height: 250px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .hero-section {
-      min-height: 800px;
-    }
-  
-    .hero-red-curve {
-      height: 800px;
-      border-radius: 0 0 40% 40% / 0 0 80% 80%;
-    }
-  
-    .hero-black-curve {
-      height: 790px;
-      width: 94%;
-      border-radius: 0 0 40% 40% / 0 0 80% 80%;
-    }
-  
-    .discount-wrapper {
-      height: 800px;
-      border-radius: 0 0 40% 40% / 0 0 80% 80%;
-    }
-  
-    .delivery-info {
-      right: 45%; /* Adjust for mobile */
-    }
-  
-    .discount-rotator {
-      right: 25%;
-    }
-  
-    .hero-text h1 {
-      font-size: 2.5rem;
-    }
-  
-    .hero-text p {
-      font-size: 0.875rem;
-      margin: 0 auto;
-    }
-  
-    .hero-content {
-      padding: 0.5rem 0;
-    }
-  
-    .hero-split {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-  
-    .hero-image,
-    .hero-text {
-      width: 100%;
-      text-align: center;
-      margin-top: 0;
-    }
-  
-    .hero-image {
-      margin-bottom: 1rem;
-    }
-  
-    .hero-text .flex {
-      flex-direction: row;
-      justify-content: center;
-      gap: 1rem;
-    }
-  
-    .hero-text .flex a {
-      width: 30%;
-      text-align: center;
-      padding: 0.75rem 0;
-    }
-  
-    .discount-box {
-      padding: 0.3rem 0.6rem;
-    }
-  
-    .discount-box span {
-      font-size: 0.8rem;
-    }
-  
-    .bike-icon {
-      width: 2rem;
-      height: 2rem;
-    }
-  
-    .delivery-text {
-      font-size: 0.875rem;
-    }
-  
-    .story-split {
-      flex-direction: column;
-      gap: 1rem;
-    }
-  
-    .story-image,
-    .story-text,
-    .story-food-image {
-      width: 100%;
-      text-align: center;
-    }
-  
-    .circle-image-wrapper {
-      width: 200px;
-      height: 200px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .hero-section {
-      min-height: 700px;
-    }
-  
-    .hero-red-curve {
-      height: 700px;
-      border-radius: 0 0 35% 35% / 0 0 70% 70%;
-    }
-  
-    .hero-black-curve {
-      height: 690px;
-      width: 92%;
-      border-radius: 0 0 35% 35% / 0 0 70% 70%;
-    }
-  
-    .discount-wrapper {
-      height: 700px;
-      border-radius: 0 0 35% 35% / 0 0 70% 70%;
-    }
-  
-    .delivery-info {
-      right: 40%; /* Adjust for smaller mobile screens */
-    }
-  
-    .discount-rotator {
-      right: 20%;
-    }
-  
-    .hero-text h1 {
-      font-size: 2rem;
-    }
-  
-    .hero-text p {
-      font-size: 0.75rem;
-    }
-  
-    .hero-content {
-      padding: 0.25rem 0;
-    }
-  
-    .hero-text .flex a {
-      width: 35%;
-      font-size: 0.75rem;
-      padding: 0.5rem 0;
-    }
-  
-    .discount-box {
-      padding: 0.2rem 0.5rem;
-    }
-  
-    .discount-box span {
-      font-size: 0.7rem;
-    }
-  
-    .bike-icon {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-  
-    .delivery-text {
-      font-size: 0.75rem;
-    }
-  
-    .story-section {
-      padding: 1.5rem 0;
-    }
-  
-    .circle-image-wrapper {
-      width: 150px;
-      height: 150px;
-    }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 700px;
   }
 
+  .hero-red-curve {
+    height: 700px;
+    border-radius: 0 0 35% 35% / 0 0 70% 70%;
+  }
 
+  .hero-black-curve {
+    height: 690px;
+    width: 92%;
+    border-radius: 0 0 35% 35% / 0 0 70% 70%;
+  }
 
-  /* From Uiverse.io by zanina-yassine */ 
+  .discount-wrapper {
+    height: 700px;
+    border-radius: 0 0 35% 35% / 0 0 70% 70%;
+  }
+
+  .delivery-info {
+    right: 40%; /* Adjust for smaller mobile screens */
+  }
+
+  .discount-rotator {
+    right: 20%;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 0.75rem;
+  }
+
+  .hero-content {
+    padding: 0.25rem 0;
+  }
+
+  .hero-text .flex a {
+    width: 35%;
+    font-size: 0.75rem;
+    padding: 0.5rem 0;
+  }
+
+  .discount-box {
+    padding: 0.2rem 0.5rem;
+  }
+
+  .discount-box span {
+    font-size: 0.7rem;
+  }
+
+  .bike-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .delivery-text {
+    font-size: 0.75rem;
+  }
+
+  .story-section {
+    padding: 1.5rem 0;
+  }
+
+  .circle-image-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* BTNNNN */
 .button {
-    min-width: 120px;
-  
-    position: relative;
-    cursor: pointer;
-  
-    /* padding: 1px 15px; */
-    border: 0;
-    /* border-radius: 7px; */
-  
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-    /* background: radial-gradient(
+  min-width: 120px;
+
+  position: relative;
+  cursor: pointer;
+
+  /* padding: 1px 15px; */
+  border: 0;
+  /* border-radius: 7px; */
+
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  /* background: radial-gradient(
       ellipse at bottom,
       rgba(71, 81, 92, 1) 0%,
       rgba(11, 21, 30, 1) 45%
     ); */
-  
-    color: rgb(255, 255, 255, 0.96);
-  
-    transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+
+  color: rgb(255, 255, 255, 0.96);
+
+  transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.button::before {
+  content: "";
+  width: 70%;
+  height: 1px;
+
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0.2;
+
+  transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.button:hover {
+  color: rgb(255, 255, 255, 1);
+  transform: scale(1.1) translateY(-3px);
+  background-color: transparent !important;
+  border: 1px solid #e02424 !important;
+}
+
+.button:hover::before {
+  opacity: 1;
+}
+
+/* BTNN2  */
+.beautiful-button {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(to bottom, #cb2020, #e02424);
+  /* Gradient background */
+  color: white;
+  /* White text color */
+  font-family: "Segoe UI", sans-serif;
+  /* Stylish and legible font */
+  font-weight: bold;
+  font-size: 18px;
+  /* Large font size */
+  border: none;
+  /* No border */
+  border-radius: 30px;
+  /* Rounded corners */
+  padding: 14px 28px;
+  /* Large padding */
+  cursor: pointer;
+  /* Cursor on hover */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  /* Subtle shadow */
+  animation: button-shimmer 2s infinite;
+  transition: all 0.3s ease-in-out;
+  /* Smooth transition */
+}
+
+/* Hover animation */
+.beautiful-button:hover {
+  background: linear-gradient(to bottom, #e02424, #cb2020);
+  animation: button-particles 1s ease-in-out infinite;
+  transform: translateY(-2px);
+}
+
+/* Click animation */
+.beautiful-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Shimmer animation */
+@keyframes button-shimmer {
+  0% {
+    background-position: left top;
   }
-  
-  .button::before {
-    content: "";
-    width: 70%;
-    height: 1px;
-  
-    position: absolute;
-    bottom: 0;
-    left: 15%;
-  
-    background: rgb(255, 255, 255);
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 1) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    opacity: 0.2;
-  
-    transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+
+  100% {
+    background-position: right bottom;
   }
-  
-  .button:hover {
-    color: rgb(255, 255, 255, 1);
-    transform: scale(1.1) translateY(-3px);
-    background-color: transparent !important;
-    border:1px solid  #e02424 !important;
+}
+
+/* Particle animation */
+@keyframes button-particles {
+  0% {
+    background-position: left top;
   }
-  
-  .button:hover::before {
-    opacity: 1;
+
+  100% {
+    background-position: right bottom;
   }
-  
+}
+
+.story-text .beautiful-button {
+  margin-left: auto; /* Pushes the button to the right */
+  display: block; /* Ensures the button behaves as a block for alignment */
+}

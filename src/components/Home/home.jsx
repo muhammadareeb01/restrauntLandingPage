@@ -120,7 +120,7 @@ function Home() {
       {/* View Our Story Section */}
       <div className="story-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="story-split flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Left Side: Wraps Image */}
+          {/* Left Side :)  */}
           <div className="story-image w-full md:w-1/3 flex justify-center">
             <img
               src={wrapsImage}
@@ -129,17 +129,16 @@ function Home() {
               data-aos="fade-right"
             />
           </div>
-
-          {/* Center: Story Text */}
-          <div className="story-text w-full md:w-1/3 text-center">
-            <h2
-              className="text-4xl md:text-5xl font-bold text-red-600 mb-4"
-              data-aos="fade-up"
-            >
-              View Our Story
+          {/* Right side :/ */}
+          <div className="story-text w-full md:w-1/3 text-right">
+            <h2 className="text-right font-bold  mb-4" data-aos="fade-up">
+              <span className="block text-4xl md:text-5xl">View Our</span>
+              <span className="block text-5xl md:text-9xl text-red-600">
+                Story
+              </span>
             </h2>
             <p
-              className="text-gray-600 mb-6"
+              className="text-right text-gray-600 mb-6"
               data-aos="fade-up"
               data-aos-delay="100"
             >
@@ -147,13 +146,8 @@ function Home() {
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation.
             </p>
-            <Link
-              to="/story"
-              className="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-medium"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              Read More
+            <Link to="/story" data-aos="fade-up" data-aos-delay="200">
+              <button className="beautiful-button">Read more</button>
             </Link>
           </div>
 
@@ -171,7 +165,7 @@ function Home() {
         </div>
       </div>
 
-      {/* Testimonials Section */}
+      {/* Client  Section */}
       <TestimonialsSection />
     </div>
   );
