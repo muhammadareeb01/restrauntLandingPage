@@ -9,12 +9,10 @@
   transition: transform 0.3s ease-in-out;
 }
 
-/* Show navbar (scroll up or at top) */
 .navbar.visible {
   transform: translateY(0);
 }
 
-/* Hide navbar (scroll down) */
 .navbar.hidden {
   transform: translateY(-100%);
 }
@@ -38,12 +36,10 @@
   z-index: 20;
 }
 
-/* When links are open, hamburger stays on the left */
 .navbar-hamburger-wrapper.links-open {
   left: 0;
 }
 
-/* When links are closed, hamburger moves to the center */
 .navbar-hamburger-wrapper.links-closed {
   left: 50%;
   transform: translateX(-50%);
@@ -82,7 +78,6 @@
   bottom: 0;
 }
 
-/* Transform hamburger into a cross when open */
 .navbar-hamburger.open .hamburger-line.top {
   transform: rotate(45deg);
   top: 50%;
@@ -107,7 +102,6 @@
   justify-content: center;
 }
 
-/* Equal gaps between links on both sides */
 .navbar-links-left,
 .navbar-links-right {
   display: flex;
@@ -139,7 +133,6 @@
   width: 100%;
 }
 
-/* Ensure links are visible against the dark background */
 .navbar-links a {
   color: #ffffff !important;
 }
@@ -153,8 +146,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh; /* Full viewport height */
-  background-color: #1e40af; /* Blue background */
+  height: 100vh; 
+  background-color: #dc2626; 
   padding: 4rem 1rem;
   z-index: 10;
 }
@@ -163,12 +156,13 @@
 @media (max-width: 768px) {
   .navbar-links {
     display: none;
+    text-align: left;
   }
 
   .navbar-mobile-menu {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   /* On mobile, keep hamburger centered when links are closed */

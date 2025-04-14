@@ -1,17 +1,17 @@
-/* Main page container */
+/* Main container for the entire page */
 .home-page {
   background-color: #ffffff;
   position: relative;
 }
 
-/* Hero section styling */
+/* Hero Section: Top section with background curves */
 .hero-section {
   position: relative;
   min-height: 700px;
   overflow: hidden;
 }
 
-/* Red semi-circle background at the top */
+/* Red semi-circle background at the top of the hero section */
 .hero-red-curve {
   width: 100%;
   height: 700px;
@@ -23,7 +23,7 @@
   z-index: 0;
 }
 
-/* Black inner semi-circle background */
+/* Black inner semi-circle background inside the red curve */
 .hero-black-curve {
   width: 96%;
   height: 690px;
@@ -44,7 +44,7 @@
   background-color: #1a1a1a;
 }
 
-/* Container for Delivery Info and Discount Box, with masking */
+/* Wrapper for delivery info and discount box with masking */
 .discount-wrapper {
   position: absolute;
   top: 0;
@@ -56,11 +56,11 @@
   z-index: 2;
 }
 
-/* Delivery Info (Icon and Text) */
+/* Delivery Info: Icon and text in the hero section */
 .delivery-info {
   position: absolute;
   top: 85%;
-  right: 47%; /* Position to the left of the discount box */
+  right: 47%;
   transform: translateY(-50%);
   display: flex;
   align-items: center;
@@ -69,16 +69,17 @@
   z-index: 3;
 }
 
-/* Bike Icon styling */
+/* Bike icon styling for delivery info */
 .bike-icon {
   width: 3rem;
   height: 3rem;
   color: white;
 }
 
-/* Delivery Text styling */
+/* Delivery text styling */
 .delivery-text {
   display: flex;
+  text-align: center;
   flex-direction: column;
   color: white;
   font-weight: bold;
@@ -90,7 +91,7 @@
   display: block;
 }
 
-/* Wrapper for the Discount Box */
+/* Wrapper for the discount box in the hero section */
 .discount-rotator {
   position: absolute;
   top: 88%;
@@ -99,14 +100,14 @@
   z-index: 3;
 }
 
-/* Discount Box styling */
+/* Discount box styling */
 .discount-box {
   background-color: #e02424;
   padding: 2rem 0.5rem;
   z-index: 3;
 }
 
-/* Styling for the percentage and "OFF" text inside the discount box */
+/* Styling for percentage and "OFF" text inside the discount box */
 .discount-box p {
   display: inline;
 }
@@ -120,14 +121,14 @@
   white-space: nowrap;
 }
 
-/* Main content area (Navbar, Image, Text) */
+/* Main content area for navbar, image, and text in the hero section */
 .hero-content {
   position: relative;
   z-index: 4;
   padding: 1rem 0;
 }
 
-/* Split layout for image and text in hero section */
+/* Split layout for image and text in the hero section */
 .hero-split {
   display: flex;
   flex-direction: row;
@@ -136,7 +137,7 @@
   gap: 1rem;
 }
 
-/* Left side: Wraps image in hero section */
+/* Left side: Wraps image in the hero section */
 .hero-image {
   flex: 1;
   display: flex;
@@ -149,7 +150,7 @@
   height: auto;
 }
 
-/* Right side: Welcome text and buttons in hero section */
+/* Right side: Welcome text and buttons in the hero section */
 .hero-text {
   flex: 1;
   margin-top: -3rem;
@@ -168,7 +169,7 @@
   width: auto;
 }
 
-/* Buttons styling in hero section */
+/* Buttons styling in the hero section */
 .hero-text .flex {
   gap: 1rem;
 }
@@ -177,62 +178,139 @@
 .story-section {
   background-color: #ffffff;
   padding: 3rem 0;
+  position: relative;
+  overflow: hidden; /* Ensure the hidden image doesn't cause scrollbars */
+  width: 100%; /* Full width */
 }
 
-/* Split layout for story section */
+/* Split layout for the story section */
 .story-split {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  justify-content: center; /* Center the text and rotating image */
+  gap: 5rem;
+  width: 80%;
+  margin: 0 auto;
 }
 
-/* Left side: Wraps image in story section */
+/* Left side: Wraps image in the story section, positioned absolutely */
 .story-image {
-  flex: 1;
+  position: absolute;
+  left: 0%; /* Partially hidden on the left */
+  top: 10%; /* Center vertically */
+  transform: translateY(-50%);
+  width: 350px; /* Adjust size as needed */
+  z-index: 1;
+}
+
+/* Container for the story image with circles */
+.story-image-container {
+  position: relative;
+  width: 350px; /* Same as story-image width */
+  height: 350px; /* Make it a square to match the circle */
+  overflow: hidden; /* Ensure no overflow */
+}
+
+/* White circle background with red shadow on the right */
+.white-circle-background {
+  position: absolute;
+  top: 10px; /* Slightly smaller to create a border effect */
+  left: 10px;
+  width: 250px; /* Slightly smaller than the container */
+  height: 250px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  z-index: 2;
   display: flex;
   justify-content: center;
+  align-items: center;
+  /* Red shadow on the right side */
+  box-shadow: 15px 0 20px -5px rgba(224, 36, 36, 0.5);
 }
 
-.story-image img {
-  max-width: 100%;
+/* Image content on top */
+.story-image-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* Adjust to fit within the white circle */
   height: auto;
+  z-index: 3;
 }
 
 /* Center: Story text */
 .story-text {
   flex: 1;
-  text-align: right;
+  text-align: right; /* Right-aligned as per the updated requirement */
 }
 
 .story-text h2 {
   line-height: 1.2;
   margin-bottom: 1rem;
-  font-family: "Playfair Display", serif; /* Match the font style from the image */
+  font-family: "Playfair Display", serif;
 }
+
 .story-text h2 span {
-    display: block; /* Ensures each span takes its own line */
-  }
+  display: block;
+}
 
 .story-text p {
   margin-bottom: 1.5rem;
 }
 
-/* Right side: Circular food image */
+/* Right side: Circular food image container */
 .story-food-image {
   flex: 1;
   display: flex;
   justify-content: center;
 }
 
-/* Wrapper for circular image with dashed border */
-.circle-image-wrapper {
+/* Rotating border for the dotted circle */
+.rotating-border {
   width: 300px;
   height: 300px;
   border: 2px dashed #e02424;
   border-radius: 50%;
+  position: relative;
+}
+
+/* Wrapper for the images (does not rotate) */
+.circle-image-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
   overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dimmed background image */
+.dimmed-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the circle without distortion */
+  object-position: center; /* Center the image within the circle */
+  border-radius: 50%;
+  filter: brightness(0.7); /* Slightly dim the image for contrast */
+}
+
+/* Overlay image centered on top of the dimmed image */
+.overlay-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the overlay image perfectly */
+  width: 80%; /* Adjust size to fit within the circle */
+  height: auto;
+  max-height: 80%; /* Prevent overflow */
+  object-fit: contain; /* Ensure the entire image is visible */
+  z-index: 1; /* Place it above the dimmed image */
 }
 
 /* Responsive Styles */
@@ -258,7 +336,7 @@
   }
 
   .delivery-info {
-    right: 50%; /* Adjust for tablets */
+    right: 50%;
   }
 
   .discount-rotator {
@@ -308,12 +386,48 @@
   }
 
   .story-split {
-    gap: 1.5rem;
+    width: 100%; /* Slightly wider on smaller screens */
+    gap: 3rem; /* Reduce gap for smaller screens */
   }
 
-  .circle-image-wrapper {
+  .story-image {
+    left: -15%; /* Adjust for smaller screens */
+    width: 180px;
+  }
+
+  .story-image-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .white-circle-background {
+    width: 160px;
+    height: 160px;
+    top: 10px;
+    left: 10px;
+    box-shadow: 12px 0 18px -5px rgba(224, 36, 36, 0.5);
+  }
+
+  .story-text {
+    width: 40%; /* Slightly wider on smaller screens */
+  }
+
+  .story-text p {
+    width: 70%; /* Wider paragraph for readability */
+  }
+
+  .story-split > div:nth-child(2) {
+    width: 60%; /* Adjust the rotating image container width */
+  }
+
+  .rotating-border {
     width: 250px;
     height: 250px;
+  }
+
+  .overlay-image {
+    width: 70%;
+    max-height: 70%;
   }
 }
 
@@ -339,7 +453,7 @@
   }
 
   .delivery-info {
-    right: 45%; /* Adjust for mobile */
+    right: 45%;
   }
 
   .discount-rotator {
@@ -405,20 +519,60 @@
   }
 
   .story-split {
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: column; /* Stack vertically */
+    width: 100%; /* Full width on smaller screens */
+    gap: 2rem; /* Reduce gap */
   }
 
-  .story-image,
-  .story-text,
-  .story-food-image {
-    width: 100%;
-    text-align: center;
+  .story-image {
+    left: -20%; /* Adjust for smaller screens */
+    width: 150px;
   }
 
-  .circle-image-wrapper {
+  .story-image-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .white-circle-background {
+    width: 130px;
+    height: 130px;
+    top: 10px;
+    left: 10px;
+    box-shadow: 10px 0 15px -5px rgba(224, 36, 36, 0.5);
+  }
+
+  .story-text {
+    width: 100%; /* Full width */
+    text-align: center; /* Center text for better appearance */
+  }
+
+  .story-text h2 span {
+    text-align: center; /* Center the heading */
+  }
+
+  .story-text p {
+    width: 80%; /* Wider paragraph for readability */
+    margin: 0 auto; /* Center the paragraph */
+    text-align: center; /* Center the paragraph text */
+  }
+
+  .story-text .beautiful-button {
+    margin: 0 auto; /* Center the button */
+  }
+
+  .story-split > div:nth-child(2) {
+    width: 100%; /* Full width for the rotating image container */
+  }
+
+  .rotating-border {
     width: 200px;
     height: 200px;
+  }
+
+  .overlay-image {
+    width: 60%;
+    max-height: 60%;
   }
 }
 
@@ -444,7 +598,7 @@
   }
 
   .delivery-info {
-    right: 40%; /* Adjust for smaller mobile screens */
+    right: 40%;
   }
 
   .discount-rotator {
@@ -490,32 +644,60 @@
     padding: 1.5rem 0;
   }
 
-  .circle-image-wrapper {
+  .story-image {
+    left: -25%; /* Adjust for smaller screens */
+    width: 120px;
+  }
+
+  .story-image-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .white-circle-background {
+    width: 100px;
+    height: 100px;
+    top: 10px;
+    left: 10px;
+    box-shadow: 8px 0 12px -5px rgba(224, 36, 36, 0.5);
+  }
+
+  .story-split {
+    width: 100%; /* Full width on very small screens */
+    gap: 1.5rem; /* Further reduce gap */
+  }
+
+  .story-text h2 span {
+    font-size: 2rem; /* Smaller font size for "View Our" */
+  }
+
+  .story-text h2 span:last-child {
+    font-size: 3rem; /* Smaller font size for "Story" */
+  }
+
+  .story-text p {
+    width: 90%; /* Wider paragraph for readability */
+  }
+
+  .rotating-border {
     width: 150px;
     height: 150px;
   }
+
+  .overlay-image {
+    width: 50%;
+    max-height: 50%;
+  }
 }
 
-/* BTNNNN */
+/* Button Styling: Primary button for actions */
 .button {
   min-width: 120px;
-
   position: relative;
   cursor: pointer;
-
-  /* padding: 1px 15px; */
   border: 0;
-  /* border-radius: 7px; */
-
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  /* background: radial-gradient(
-      ellipse at bottom,
-      rgba(71, 81, 92, 1) 0%,
-      rgba(11, 21, 30, 1) 45%
-    ); */
-
   color: rgb(255, 255, 255, 0.96);
-
   transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
 }
 
@@ -523,11 +705,9 @@
   content: "";
   width: 70%;
   height: 1px;
-
   position: absolute;
   bottom: 0;
   left: 15%;
-
   background: rgb(255, 255, 255);
   background: linear-gradient(
     90deg,
@@ -536,7 +716,6 @@
     rgba(255, 255, 255, 0) 100%
   );
   opacity: 0.2;
-
   transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
 }
 
@@ -551,70 +730,57 @@
   opacity: 1;
 }
 
-/* BTNN2  */
+/* Secondary Button: Beautiful button for "Read more" */
 .beautiful-button {
   position: relative;
   display: inline-block;
   background: linear-gradient(to bottom, #cb2020, #e02424);
-  /* Gradient background */
   color: white;
-  /* White text color */
   font-family: "Segoe UI", sans-serif;
-  /* Stylish and legible font */
   font-weight: bold;
   font-size: 18px;
-  /* Large font size */
   border: none;
-  /* No border */
   border-radius: 30px;
-  /* Rounded corners */
   padding: 14px 28px;
-  /* Large padding */
   cursor: pointer;
-  /* Cursor on hover */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  /* Subtle shadow */
   animation: button-shimmer 2s infinite;
   transition: all 0.3s ease-in-out;
-  /* Smooth transition */
 }
 
-/* Hover animation */
+/* Hover animation for the beautiful button */
 .beautiful-button:hover {
   background: linear-gradient(to bottom, #e02424, #cb2020);
   animation: button-particles 1s ease-in-out infinite;
   transform: translateY(-2px);
 }
 
-/* Click animation */
+/* Click animation for the beautiful button */
 .beautiful-button:active {
   transform: scale(0.95);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Shimmer animation */
+/* Shimmer animation for the beautiful button */
 @keyframes button-shimmer {
   0% {
     background-position: left top;
   }
-
   100% {
     background-position: right bottom;
   }
 }
 
-/* Particle animation */
+/* Particle animation for the beautiful button on hover */
 @keyframes button-particles {
   0% {
     background-position: left top;
   }
-
   100% {
     background-position: right bottom;
   }
 }
 
 .story-text .beautiful-button {
-  margin-left: auto; /* Pushes the button to the right */
-  display: block; /* Ensures the button behaves as a block for alignment */
+  display: block;
 }

@@ -4,7 +4,7 @@ import "./App.css";
 import Navbar from "./components/Navbar/navbar";
 import Footer from "./components/Footer/footer";
 import Home from "./components/Home/home";
-import TestimonialsSection from "./components/Home/TestimonialsSection";
+import TestimonialsSection from "./components/Testimonials/TestimonialsSection";
 
 function Menu() {
   return (

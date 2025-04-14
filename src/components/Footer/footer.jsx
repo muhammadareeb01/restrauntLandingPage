@@ -1,8 +1,8 @@
 import React from "react";
-import LogoSection from "./logo";
-import QuickLinks from "./quicklink";
-import ContactInfo from "./contact";
-import Newsletter from "./newsletter";
+import LogoSection from "../../ui/footer/logo";
+import QuickLinks from "../../ui/footer/quicklink";
+import ContactInfo from "../../ui/footer/contact";
+import Newsletter from "../../ui/footer/newsletter";
 
 function Footer() {
   return (

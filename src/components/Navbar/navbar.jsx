@@ -2,19 +2,18 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NavLink from "../../ui/navbarlink";
 import logo from "../../assets/logo.jpg";
-import "./Navbar.css";
+import "../../styles/navbar.css";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false); // Default to closed
+  const [isOpen, setIsOpen] = useState(true); // Default to closed
   const [activeLink, setActiveLink] = useState("/");
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleMenu = () => {
-    console.log("Toggling menu, current isOpen:", isOpen); // Debug log
     setIsOpen((prev) => {
       const newState = !prev;
-      console.log("New isOpen state:", newState); // Debug log
+      console.log("checking...............", newState); // Debug log
       return newState;
     });
   };
@@ -85,10 +84,21 @@ function Navbar() {
   };
 
   return (
-    <nav className={`navbar w-full ${isVisible ? "visible" : "hidden"} bg-transparent`}>
+    <nav
+      className={`navbar w-full ${
+        isVisible ? "visible" : "hidden"
+      } bg-transparent`}
+    >
       <div className="navbar-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className={`navbar-hamburger-wrapper ${isOpen ? "links-open" : "links-closed"}`}>
-          <div className={`navbar-hamburger ${isOpen ? "open" : "closed"}`} onClick={toggleMenu}>
+        <div
+          className={`navbar-hamburger-wrapper ${
+            isOpen ? "links-open" : "links-closed"
+          }`}
+        >
+          <div
+            className={`navbar-hamburger ${isOpen ? "open" : "closed"}`}
+            onClick={toggleMenu}
+          >
             <span className="hamburger-line top"></span>
             <span className="hamburger-line middle"></span>
             <span className="hamburger-line bottom"></span>

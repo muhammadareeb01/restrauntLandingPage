@@ -1,6 +1,6 @@
 import React from "react";
 import { FaPaperPlane } from "react-icons/fa";
-import "./app.css";
+import "../../styles/footer.css";
 function Newsletter() {
   return (
     <div className="text-white">
