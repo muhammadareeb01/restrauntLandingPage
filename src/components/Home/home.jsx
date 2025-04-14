@@ -32,7 +32,11 @@ function Home() {
         {/* Container for Delivery Info and Discount Box */}
         <div className="discount-wrapper">
           {/* Delivery Info with Bike Icon and Text */}
-          <div className="delivery-info" data-aos="fade-up" data-aos-delay="200">
+          <div
+            className="delivery-info"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <svg
               className="bike-icon"
               fill="none"
@@ -55,7 +59,11 @@ function Home() {
 
           {/* Discount Box for "20% OFF" */}
           <div className="discount-rotator">
-            <div className="discount-box" data-aos="fade-up" data-aos-delay="300">
+            <div
+              className="discount-box"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
               <span className="text-5xl">20 </span>
               <p className="text-2xl">
                 % <p className="text-2xl">OFF</p>
@@ -90,15 +98,18 @@ function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/order"
-                  className="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-medium"
+                  //   className="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-medium"
                 >
-                  Order Now
+                  <button className="bg-red-600  order button text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-medium">
+                    {" "}
+                    Order Now
+                  </button>
                 </Link>
-                <Link
-                  to="/menu"
-                  className="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-medium"
-                >
-                  Go to Our Menu
+                <Link to="/menu">
+                  <button className="bg-red-600  order button text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-medium">
+                    {" "}
+                    Go to Our Menu
+                  </button>
                 </Link>
               </div>
             </div>
