@@ -1,28 +1,44 @@
 // src/components/StorySection.js
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { gsap } from "gsap";
 import wrapsImage from "../../assets/wrapsImage.png";
 import storyFoodImage from "../../assets/image.png";
 import RotatingCircleImage from "../../ui/rotatingimag";
 
 function StorySection() {
+  const whiteCircleRef = useRef(null);
+
+  useEffect(() => {
+    if (whiteCircleRef.current) {
+      gsap.to(whiteCircleRef.current, {
+        rotation: 360,
+        duration: 10,
+        repeat: -1,
+        ease: "none",
+      });
+    }
+  }, []);
+
   return (
     <div className="story-section">
-      {/* First image positioned absolutely on the left with a white circle and red shadow */}
-      <div className="story-image" data-aos="fade-right">
+      <div className="story-image" data-aos="zoom-in">
         <div className="story-image-container">
-          <div className="white-circle-background">
-            <img
-              src={wrapsImage}
-              alt="Story Wraps"
-              className="w-full max-w-sm object-contain story-image-content"
-            />
-          </div>
+          <div className="white-circle-background" ref={whiteCircleRef}></div>
+
+          <img
+            src={wrapsImage}
+            alt="Story Wraps"
+            className="w-full max-w-sm object-contain story-image-content"
+          />
         </div>
       </div>
-      {/* Flex container to center the text and rotating image */}
+
       <div className="story-split gap-10 w-full">
-        <div className="story-text md:w-1/3 max-w-[80%] mx-auto" style={{ width: "30%" }}>
+        <div
+          className="story-text md:w-1/3 max-w-[80%] mx-auto"
+          style={{ width: "30%" }}
+        >
           <h2 className="font-normal mb-4" data-aos="fade-up">
             <span className="block text-4xl text-right md:text-5xl">
               View Our

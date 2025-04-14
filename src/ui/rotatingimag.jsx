@@ -6,7 +6,6 @@ function RotatingCircleImage({ dimmedImageSrc, overlayImageSrc }) {
   const borderRef = useRef(null);
 
   useEffect(() => {
-    // GSAP animation to rotate the dotted border
     if (borderRef.current) {
       gsap.to(borderRef.current, {
         rotation: 360,
@@ -18,17 +17,19 @@ function RotatingCircleImage({ dimmedImageSrc, overlayImageSrc }) {
   }, []);
 
   return (
-    <div className="story-food-image w-full md:w-full  sm:w-full flex justify-center">
-      <div className="rotating-border" ref={borderRef}>
+    <div className="story-food-image lg:w-1/2 w-full md:w-full sm:w-full flex justify-center">
+      {/* Container to position the border and images together */}
+      <div className="rotating-image-container">
+        {/* Dotted border that rotates */}
+        <div className="rotating-border" ref={borderRef}></div>
+        {/* Static images that do not rotate */}
         <div className="circle-image-wrapper">
-          {/* Dimmed background image */}
           <img
             src={dimmedImageSrc}
             alt="Story Food Background"
             className="dimmed-image"
-            data-aos="fade-left"
+            // data-aos="fade-left"
           />
-          {/* Overlay image centered on top of the dimmed image */}
           <img
             src={overlayImageSrc}
             alt="Overlay Wraps"

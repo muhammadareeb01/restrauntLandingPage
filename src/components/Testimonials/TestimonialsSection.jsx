@@ -8,8 +8,6 @@ function TestimonialSection() {
     <section className="bg-gray-100 w-full overflow-hidden">
       <div className="w-full">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-[20px] md:gap-6 lg:gap-8">
-          
-          {/* Image Section */}
           <div className="w-full lg:w-1/2" data-aos="fade-right">
             <img
               src={wrapImage}
@@ -18,7 +16,6 @@ function TestimonialSection() {
             />
           </div>
 
-          {/* Text + Slider Section with Responsive Padding */}
           <div
             className="w-full lg:w-1/2 flex flex-col items-center justify-center text-center lg:items-start lg:text-left px-4 sm:px-6 md:px-8 py-6"
             data-aos="fade-left"
