@@ -1,8 +1,7 @@
 import React from 'react';
 import TestimonialSlider from '../../ui/slider';
 import { testimonials } from '../../data/data';
-
-const wrapImage = 'https://via.placeholder.com/600x400?text=Wrap+Image';
+import  wrapImage   from '../../assets/image.png';
 
 function TestimonialSection() {
   console.log('Testimonials data:', testimonials);
@@ -15,7 +14,7 @@ function TestimonialSection() {
             <img
               src={wrapImage}
               alt="Food Wrap"
-              className="w-full h-auto max-h-64 lg:max-h-96 object-cover rounded-lg shadow-lg"
+              className="w-full h-auto max-h-64 lg:max-h-96 object-cover "
             />
           </div>
           <div className="flex flex-col w-full" data-aos="fade-left">

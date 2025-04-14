@@ -1,0 +1,42 @@
+/* Ensure the container doesn't interfere with the fade */
+.testimonial-slider-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  /* Override react-slick's default transition to prevent double fade */
+  .testimonial-slider-container .slick-slide {
+    transition: none !important; /* Disable react-slick's transition */
+  }
+  
+  /* Style the testimonial slide */
+  .testimonial-slide {
+    transition: opacity 0.4s ease-in-out; /* 400ms fade-out + 400ms fade-in = 800ms total */
+    opacity: 1;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  /* Fade-out effect */
+  .testimonial-slide.fade-out {
+    opacity: 0;
+  }
+  
+  /* Fade-in effect */
+  .testimonial-slide.fade-in {
+    opacity: 1;
+  }
+  
+  /* Style the dots for better visibility */
+  .slick-dots {
+    margin-top: 1rem;
+  }
+  
+  .slick-dots li button:before {
+    color: #e02424;
+    font-size: 12px;
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: #e02424;
+  }

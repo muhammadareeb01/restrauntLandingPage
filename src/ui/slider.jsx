@@ -1,25 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 function TestimonialSlider({ testimonials }) {
-  const [isFading, setIsFading] = useState(false);
-
-  console.log(testimonials, '..');
-
   const settings = {
     dots: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 8500,
-    speed: 1500, // Total duration for the fade-out + fade-in (1.5 seconds)
-    fade: false, // Disable react-slick's fade to use custom CSS
-    arrows: false, // Hide arrows since they're not in the design
-    beforeChange: () => setIsFading(true), // Start fade-out
-    afterChange: () => setIsFading(false), // Reset after fade-in
+    autoplaySpeed: 4000,
+    speed: 800, // Transition duration (800ms)
+    fade: true, // Enable react-slick's built-in fade effect
+    cssEase: 'ease-in-out', // Smooth easing for the fade
+    arrows: false,
     responsive: [
       {
         breakpoint: 1170,
@@ -51,31 +46,50 @@ function TestimonialSlider({ testimonials }) {
   }
 
   return (
-    <div className="bg-gray-100 w-full">
-      <Slider {...settings}>
-        {testimonials.map((testimonial, index) => (
-          <div key={index} className="w-full">
-            <div
-              className={`relative testimonial-slide ${
-                isFading ? 'fade-out' : 'fade-in'
-              }`}
-            >
-              <p className="text-gray-600 text-base leading-relaxed italic">
-                ‘{testimonial.quote}’
-              </p>
-              <div className="mt-6 md:mt-8">
-                <p className="text-xl font-semibold text-red-600">
-                  {testimonial.author}
+    <>
+      <style>
+        {`
+          .testimonial-slide {
+            // padding: 2rem;
+            text-align: left;
+          }
+
+          .testimonial-slide p {
+            margin: 0; /* Ensure no extra margins interfere with positioning */
+          }
+
+          .slick-dots li button:before {
+            color: #e02424;
+            font-size: 12px;
+          }
+
+          .slick-dots li.slick-active button:before {
+            color: #e02424;
+          }
+        `}
+      </style>
+      <div className="bg-gray-100 w-full">
+        <Slider {...settings}>
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="w-full">
+              <div className="relative testimonial-slide">
+                <p className="text-gray-600 text-base leading-relaxed italic">
+                  ‘{testimonial.quote}’
                 </p>
-                <p className="text-gray-500 text-sm">
-                  {testimonial.description}
-                </p>
+                <div className="mt-6 md:mt-8">
+                  <p className="text-xl font-semibold text-red-600">
+                    {testimonial.author}
+                  </p>
+                  <p className="text-gray-500 text-sm">
+                    {testimonial.description}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </Slider>
-    </div>
+          ))}
+        </Slider>
+      </div>
+    </>
   );
 }
 

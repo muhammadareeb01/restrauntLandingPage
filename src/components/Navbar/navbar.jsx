@@ -2,16 +2,21 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NavLink from "../../ui/navbarlink";
 import logo from "../../assets/logo.jpg";
-import "./navbar.css";
+import "./Navbar.css";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(true);
-  const [activeLink, setActiveLink] = useState("#home");
-  const [isVisible, setIsVisible] = useState(true); // State to control navbar visibility
-  const [lastScrollY, setLastScrollY] = useState(0); // Track last scroll position
+  const [isOpen, setIsOpen] = useState(false); // Default to closed
+  const [activeLink, setActiveLink] = useState("/");
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    console.log("Toggling menu, current isOpen:", isOpen); // Debug log
+    setIsOpen((prev) => {
+      const newState = !prev;
+      console.log("New isOpen state:", newState); // Debug log
+      return newState;
+    });
   };
 
   const handleLinkClick = (href) => {
@@ -21,16 +26,13 @@ function Navbar() {
     }
   };
 
-  // Scroll handler to show/hide navbar based on scroll direction
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 70) {
-        // Scrolling down and past the navbar height
         setIsVisible(false);
       } else {
-        // Scrolling up or at the top
         setIsVisible(true);
       }
 
@@ -45,18 +47,17 @@ function Navbar() {
   }, [lastScrollY]);
 
   const navLinksLeft = [
-    { href: "#home", label: "Home" },
-    { href: "#menu", label: "Menu" },
-    { href: "#order", label: "Order" },
+    { href: "/", label: "Home" },
+    { href: "/menu", label: "Menu" },
+    { href: "/order", label: "Order" },
   ];
 
   const navLinksRight = [
-    { href: "#story", label: "Story" },
-    { href: "#location", label: "Location" },
-    { href: "#contact", label: "Contact Us" },
+    { href: "/story", label: "Story" },
+    { href: "/location", label: "Location" },
+    { href: "/contact", label: "Contact Us" },
   ];
 
-  // Framer Motion variants for the navbar-links animation
   const linkVariants = {
     open: {
       scaleX: 1,
@@ -65,13 +66,26 @@ function Navbar() {
     },
     closed: {
       scaleX: 0,
-      originX: 0,
+      originX: 1,
+      transition: { duration: 0.5, ease: "easeInOut" },
+    },
+  };
+
+  const mobileMenuVariants = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeInOut" },
+    },
+    closed: {
+      y: "-100%",
+      opacity: 0,
       transition: { duration: 0.5, ease: "easeInOut" },
     },
   };
 
   return (
-    <nav className={`navbar bg-slate-500 w-full ${isVisible ? "visible" : "hidden"}`}>
+    <nav className={`navbar w-full ${isVisible ? "visible" : "hidden"} bg-transparent`}>
       <div className="navbar-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className={`navbar-hamburger-wrapper ${isOpen ? "links-open" : "links-closed"}`}>
           <div className={`navbar-hamburger ${isOpen ? "open" : "closed"}`} onClick={toggleMenu}>
@@ -83,6 +97,7 @@ function Navbar() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
+              key="desktop-links"
               className="navbar-links"
               initial="closed"
               animate="open"
@@ -101,7 +116,7 @@ function Navbar() {
                   </NavLink>
                 ))}
               </div>
-              <a href="#home" className="navbar-logo">
+              <a href="/" className="navbar-logo">
                 <img
                   src={logo}
                   alt="Digital Solutions Logo"
@@ -123,18 +138,30 @@ function Navbar() {
             </motion.div>
           )}
         </AnimatePresence>
-        <div className={`navbar-mobile-menu ${isOpen ? "open" : "closed"}`}>
-          {[...navLinksLeft, ...navLinksRight].map((link) => (
-            <NavLink
-              key={link.href}
-              href={link.href}
-              isActive={activeLink === link.href}
-              onClick={() => handleLinkClick(link.href)}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              key="mobile-menu"
+              className="navbar-mobile-menu"
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={mobileMenuVariants}
             >
-              {link.label}
-            </NavLink>
-          ))}
-        </div>
+              {[...navLinksLeft, ...navLinksRight].map((link) => (
+                <NavLink
+                  key={link.href}
+                  href={link.href}
+                  isActive={activeLink === link.href}
+                  onClick={() => handleLinkClick(link.href)}
+                  className="text-white text-lg font-medium hover:text-red-600 transition-colors"
+                >
+                  {link.label}
+                </NavLink>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
