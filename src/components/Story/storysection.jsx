@@ -1,3 +1,4 @@
+// src/components/StorySection.js
 import React from "react";
 import { Link } from "react-router-dom";
 import wrapsImage from "../../assets/wrapsImage.png";
@@ -7,6 +8,7 @@ import RotatingCircleImage from "../../ui/rotatingimag";
 function StorySection() {
   return (
     <div className="story-section">
+      {/* First image positioned absolutely on the left with a white circle and red shadow */}
       <div className="story-image" data-aos="fade-right">
         <div className="story-image-container">
           <div className="white-circle-background">
@@ -20,7 +22,7 @@ function StorySection() {
       </div>
       {/* Flex container to center the text and rotating image */}
       <div className="story-split gap-10 w-full">
-        <div className="story-text md:w-1/3" style={{ width: "30%" }}>
+        <div className="story-text md:w-1/3 max-w-[80%] mx-auto" style={{ width: "30%" }}>
           <h2 className="font-normal mb-4" data-aos="fade-up">
             <span className="block text-4xl text-right md:text-5xl">
               View Our
@@ -44,7 +46,7 @@ function StorySection() {
             </button>
           </Link>
         </div>
-        <div style={{ width: "50%" }}>
+        <div className="max-w-[80%] mx-auto" style={{ width: "50%" }}>
           <RotatingCircleImage
             dimmedImageSrc={storyFoodImage}
             overlayImageSrc={wrapsImage}

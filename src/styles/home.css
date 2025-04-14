@@ -225,7 +225,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Red shadow on the right side */
   box-shadow: 15px 0 20px -5px rgba(224, 36, 36, 0.5);
 }
 
@@ -258,6 +257,7 @@
 
 .story-text p {
   margin-bottom: 1.5rem;
+  font-size: 1rem; /* Default font size for paragraph */
 }
 
 /* Right side: Circular food image container */
@@ -386,38 +386,51 @@
   }
 
   .story-split {
-    width: 100%; /* Slightly wider on smaller screens */
-    gap: 3rem; /* Reduce gap for smaller screens */
+    width: 90%; /* Slightly wider on medium screens */
+    gap: 3rem; /* Reduce gap for medium screens */
   }
 
   .story-image {
-    left: -15%; /* Adjust for smaller screens */
-    width: 180px;
+    left: -10%; /* Slightly less hidden on medium screens */
+    width: 200px; /* Smaller size for medium screens */
   }
 
   .story-image-container {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
   }
 
   .white-circle-background {
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
     top: 10px;
     left: 10px;
     box-shadow: 12px 0 18px -5px rgba(224, 36, 36, 0.5);
   }
 
   .story-text {
-    width: 40%; /* Slightly wider on smaller screens */
+    width: 40%; /* Slightly wider on medium screens */
+    max-width: 80%; /* Restrict to 80% */
+    margin: 0 auto; /* Center */
+  }
+
+  .story-text h2 span {
+    font-size: 3rem; /* Reduce "View Our" font size */
+  }
+
+  .story-text h2 span:last-child {
+    font-size: 6rem; /* Reduce "Story" font size */
   }
 
   .story-text p {
     width: 70%; /* Wider paragraph for readability */
+    font-size: 0.9rem; /* Slightly smaller paragraph text */
   }
 
   .story-split > div:nth-child(2) {
     width: 60%; /* Adjust the rotating image container width */
+    max-width: 80%; /* Restrict to 80% */
+    margin: 0 auto; /* Center */
   }
 
   .rotating-border {
@@ -518,15 +531,23 @@
     font-size: 0.875rem;
   }
 
+  .story-section {
+    padding: 2rem 0;
+  }
+
   .story-split {
     flex-direction: column; /* Stack vertically */
     width: 100%; /* Full width on smaller screens */
-    gap: 2rem; /* Reduce gap */
+    gap: 3rem; /* Increase gap for better spacing */
+    padding: 1rem 0; /* Add padding to avoid content touching edges */
   }
 
   .story-image {
-    left: -20%; /* Adjust for smaller screens */
+    position: relative; /* Change to relative to stack naturally */
+    left: 0; /* Remove left offset */
     width: 150px;
+    margin: 0 auto; /* Center the image */
+    transform: none; /* Remove transform to avoid misalignment */
   }
 
   .story-image-container {
@@ -544,17 +565,25 @@
 
   .story-text {
     width: 100%; /* Full width */
+    max-width: 80%; /* Restrict to 80% */
+    margin: 0 auto; /* Center */
     text-align: center; /* Center text for better appearance */
   }
 
   .story-text h2 span {
+    font-size: 2.5rem; /* Further reduce "View Our" font size */
     text-align: center; /* Center the heading */
+  }
+
+  .story-text h2 span:last-child {
+    font-size: 4rem; /* Further reduce "Story" font size */
   }
 
   .story-text p {
     width: 80%; /* Wider paragraph for readability */
     margin: 0 auto; /* Center the paragraph */
     text-align: center; /* Center the paragraph text */
+    font-size: 0.875rem; /* Smaller paragraph text */
   }
 
   .story-text .beautiful-button {
@@ -563,6 +592,8 @@
 
   .story-split > div:nth-child(2) {
     width: 100%; /* Full width for the rotating image container */
+    max-width: 80%; /* Restrict to 80% */
+    margin: 0 auto; /* Center */
   }
 
   .rotating-border {
@@ -645,8 +676,11 @@
   }
 
   .story-image {
-    left: -25%; /* Adjust for smaller screens */
+    position: relative; /* Ensure it stacks naturally */
+    left: 0; /* Remove left offset */
     width: 120px;
+    margin: 0 auto; /* Center the image */
+    transform: none; /* Remove transform */
   }
 
   .story-image-container {
@@ -664,19 +698,32 @@
 
   .story-split {
     width: 100%; /* Full width on very small screens */
-    gap: 1.5rem; /* Further reduce gap */
+    gap: 2rem; /* Further reduce gap for better spacing */
+    padding: 1rem 0; /* Add padding */
+  }
+
+  .story-text {
+    max-width: 80%; /* Restrict to 80% */
+    margin: 0 auto; /* Center */
   }
 
   .story-text h2 span {
-    font-size: 2rem; /* Smaller font size for "View Our" */
+    font-size: 2rem; /* Even smaller "View Our" font size */
   }
 
   .story-text h2 span:last-child {
-    font-size: 3rem; /* Smaller font size for "Story" */
+    font-size: 3rem; /* Even smaller "Story" font size */
   }
 
   .story-text p {
     width: 90%; /* Wider paragraph for readability */
+    margin: 0 auto; /* Center */
+    font-size: 0.75rem; /* Even smaller paragraph text */
+  }
+
+  .story-split > div:nth-child(2) {
+    max-width: 80%; /* Restrict to 80% */
+    margin: 0 auto; /* Center */
   }
 
   .rotating-border {
@@ -729,7 +776,6 @@
 .button:hover::before {
   opacity: 1;
 }
-
 /* Secondary Button: Beautiful button for "Read more" */
 .beautiful-button {
   position: relative;

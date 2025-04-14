@@ -51,7 +51,7 @@ function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/order">
                 <button className="bg-red-600 order button text-white px-6 py-3 rounded-full hover:bg-red-700 transition font-medium">
-                  {" "}
+               
                   Order Now
                 </button>
               </Link>

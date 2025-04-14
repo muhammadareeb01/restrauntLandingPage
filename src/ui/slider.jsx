@@ -1,7 +1,7 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function TestimonialSlider({ testimonials }) {
   const settings = {
@@ -11,9 +11,9 @@ function TestimonialSlider({ testimonials }) {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
-    speed: 800, // Transition duration (800ms)
-    fade: true, // Enable react-slick's built-in fade effect
-    cssEase: 'ease-in-out', // Smooth easing for the fade
+    speed: 800,
+    fade: true,
+    cssEase: "ease-in-out",
     arrows: false,
     responsive: [
       {
@@ -50,7 +50,8 @@ function TestimonialSlider({ testimonials }) {
       <style>
         {`
           .testimonial-slide {
-            // padding: 2rem;
+
+          // width:80%;
             text-align: left;
           }
 
@@ -80,7 +81,7 @@ function TestimonialSlider({ testimonials }) {
                   <p className="text-xl font-semibold text-red-600">
                     {testimonial.author}
                   </p>
-                  <p className="text-gray-500 text-sm">
+                  <p className="text-gray-500 text-sm  w-32">
                     {testimonial.description}
                   </p>
                 </div>
