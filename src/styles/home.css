@@ -70,10 +70,11 @@
 .hero-image-fill::before {
   content: "";
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity for dimming */
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
@@ -86,7 +87,7 @@
   border-radius: 0 0 50% 50% / 0 0 100% 100%;
   overflow: hidden;
   z-index: 2;
-  background: transparent; /* Ensure no background interferes with the .gif */
+  background: transparent;
 }
 
 .discount-delivery-row {
@@ -99,7 +100,7 @@
   justify-content: center;
   gap: 1rem;
   z-index: 3;
-  background: transparent; /* Ensure no background interferes with the .gif */
+  background: transparent;
 }
 
 .delivery-info {
@@ -112,14 +113,14 @@
   justify-content: center;
   gap: 1rem;
   z-index: 3;
-  background: transparent; /* Ensure no background interferes with the .gif */
+  background: transparent;
 }
 
 .bike-icon {
   width: 8rem;
   height: 8rem;
-  object-fit: contain; /* Ensure the .gif scales properly */
-  background: transparent; /* Ensure no background is applied to the .gif */
+  object-fit: contain;
+  background: transparent;
 }
 
 .delivery-text {
@@ -265,8 +266,8 @@
 
 .story-image-content {
   position: absolute;
-  top: 50%;
-  left: 0%;
+  top: 40%;
+  left: 35%;
   transform: translate(-50%, -50%);
   width: 80%;
   height: auto;
@@ -357,13 +358,106 @@
   }
 }
 
-@media (max-width: 1024px) {
+/* Adjusted for 1200px to 1300px */
+@media (min-width: 1200px) and (max-width: 1300px) {
   .hero-section {
-    min-height: 600px;
+    min-height: 650px;
+  }
+
+  .hero-red-curve {
+    height: 750px; /* Increased height to maintain semi-circle shape */
+    border-radius: 0 0 50% 50% / 0 0 100% 100%; /* Adjusted to maintain circular arc */
+  }
+
+  .hero-black-curve {
+    height: 740px;
+    width: 96%;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  }
+
+  .discount-wrapper {
+    height: 750px;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  }
+
+  .discount-delivery-row {
+    top: 82%; /* Slightly adjusted to fit within semi-circle */
+    gap: 0.9rem;
+    width: 90%;
+  }
+
+  .delivery-info {
+    gap: 0.9rem;
+  }
+
+  .bike-icon {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .delivery-text {
+    font-size: 1.1rem;
+  }
+
+  .delivery-text .available {
+    font-size: 0.9rem;
+  }
+
+  .discount-box {
+    padding: 0.5rem 0.9rem;
+  }
+
+  .discount-box .discount-percentage {
+    font-size: 1rem;
+  }
+
+  .discount-off {
+    font-size: 0.6rem !important;
+  }
+
+  .hero-text h1 {
+    font-size: 4rem;
+  }
+
+  .hero-text .h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-text .h2 {
+    font-size: 3.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+    width: 70%;
+  }
+
+  .hero-content {
+    padding: 0.9rem 0;
+  }
+
+  .hero-split {
+    gap: 0.9rem;
+  }
+
+  .hero-image,
+  .hero-text {
+    margin-top: -2.5rem;
+  }
+
+  .hero-image-content {
+    max-width: 350px;
   }
 
   .order {
-    font-size: 0.8rem !important;
+    font-size: 0.9rem !important;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-section {
+    min-height: 600px;
   }
 
   .hero-red-curve {

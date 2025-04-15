@@ -1,39 +1,8 @@
 import React from "react";
 import "../../styles/menu.css";
-
-import menuImage1 from "../../assets/image.png";
-import menuImage2 from "../../assets/image.png";
-import menuImage3 from "../../assets/image.png";
-import menuImage4 from "../../assets/image.png";
+import menuItems from "../../data/menudata"; // Import the data
 
 function MenuSection() {
-  const menuItems = [
-    {
-      image: menuImage1,
-      title: "Vort Miatirq",
-      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
-      price: "$10.00",
-    },
-    {
-      image: menuImage2,
-      title: "Iacirt Ifunlirv",
-      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
-      price: "$12.00",
-    },
-    {
-      image: menuImage3,
-      title: "Vorr Nerrlirq",
-      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
-      price: "$15.00",
-    },
-    {
-      image: menuImage4,
-      title: "Vorr Hortlirv",
-      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
-      price: "$18.00",
-    },
-  ];
-
   return (
     <div className="menu-section relative bg-white">
       {/* Red background with U-shaped curve at the top */}
@@ -49,41 +18,154 @@ function MenuSection() {
           <span className="block text-7xl sm:text-6xl lg:text-9xl font-medium text-white">
             MENU
           </span>
-          <span className="block text-2xl sm:text-2xl lg:text-2xl w-1/2 mx-auto font-light text-white">
-            loremlsdhfksjdhk hksjdhfsjk,h nksdhfiljks nljksdbfils jjoisfuoi
-            nkwdjfhbhj bsdhuflgwi jbwhldfblhuj bl\fh
+          <span className="block text-2xl sm:text-2xl lg:text-2xl font-light text-white">
+            Curated dishes for you
           </span>
         </h2>
 
-        <div className="menu-grid grid grid-cols-2 gap-6">
-          {menuItems.map((item, index) => (
-            <div key={index} className="menu-item flex items-center p-4">
-              <div className="menu-image-wrapper mr-4">
-                <div className="menu-image-inner"> </div>
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-32 h-32 rounded-full object-cover"
-                />
-              </div>
-              <div className="flex flex-col">
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-300 text-sm mb-2">{item.description}</p>
-                <div className="flex flex-row items-center justify-start gap-3">
-                  <div>
-                    <p className="text-white font-bold">{item.price}</p>
-                  </div>
-                  <div>
-                    <button className="cart-btn">
-                      <span className="cart-content text-sm">Add to Cart</span>
-                    </button>
-                  </div>
+        <div className="menu-grid">
+          {/* Row 1: Items 1, Vertical Divider (Top), Item 2 */}
+          <div
+            className="menu-item flex items-center p-4"
+            data-aos="fade-left"
+            data-aos-delay="0"
+          >
+            <div className="menu-image-wrapper mr-4">
+              <div className="menu-image-inner"></div>
+              <img
+                src={menuItems[0].image}
+                alt={menuItems[0].title}
+                className="w-32 h-32 rounded-full object-cover"
+              />
+            </div>
+            <div className="flex flex-col">
+              <h3 className="text-lg font-semibold text-white mb-2">
+                {menuItems[0].title.toUpperCase()}
+              </h3>
+              <p className="text-gray-300 text-sm mb-2">
+                {menuItems[0].description}
+              </p>
+              <div className="flex flex-row items-center justify-start gap-3">
+                <div>
+                  <p className="text-white font-bold">{menuItems[0].price}</p>
+                </div>
+                <div>
+                  <button className="cart-btn">
+                    <span className="cart-content text-sm">Add to Cart</span>
+                  </button>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
+
+          <div className="dotted-divider vertical top"></div>
+
+          <div
+            className="menu-item flex items-center p-4"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
+            <div className="menu-image-wrapper mr-4">
+              <div className="menu-image-inner"></div>
+              <img
+                src={menuItems[1].image}
+                alt={menuItems[1].title}
+                className="w-32 h-32 rounded-full object-cover"
+              />
+            </div>
+            <div className="flex flex-col">
+              <h3 className="text-lg font-semibold text-white mb-2">
+                {menuItems[1].title.toUpperCase()}
+              </h3>
+              <p className="text-gray-300 text-sm mb-2">
+                {menuItems[1].description}
+              </p>
+              <div className="flex flex-row items-center justify-start gap-3">
+                <div>
+                  <p className="text-white font-bold">{menuItems[1].price}</p>
+                </div>
+                <div>
+                  <button className="cart-btn">
+                    <span className="cart-content text-sm">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Row 2: Horizontal Dividers (Left and Right) */}
+          <div className="dotted-divider horizontal left"></div>
+          <div className="divider-gap"></div>
+          <div className="dotted-divider horizontal right"></div>
+
+          {/* Row 3: Items 3, Vertical Divider (Bottom), Item 4 */}
+          <div
+            className="menu-item flex items-center p-4"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
+            <div className="menu-image-wrapper mr-4">
+              <div className="menu-image-inner"></div>
+              <img
+                src={menuItems[2].image}
+                alt={menuItems[2].title}
+                className="w-32 h-32 rounded-full object-cover"
+              />
+            </div>
+            <div className="flex flex-col">
+              <h3 className="text-lg font-semibold text-white mb-2">
+                {menuItems[2].title.toUpperCase()}
+              </h3>
+              <p className="text-gray-300 text-sm mb-2">
+                {menuItems[2].description}
+              </p>
+              <div className="flex flex-row items-center justify-start gap-3">
+                <div>
+                  <p className="text-white font-bold">{menuItems[2].price}</p>
+                </div>
+                <div>
+                  <button className="cart-btn">
+                    <span className="cart-content text-sm">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="dotted-divider vertical bottom"></div>
+
+          <div
+            className="menu-item flex items-center p-4"
+            data-aos="fade-right"
+            data-aos-delay="300"
+          >
+            <div className="menu-image-wrapper mr-4">
+              <div className="menu-image-inner"></div>
+              <img
+                src={menuItems[3].image}
+                alt={menuItems[3].title}
+                className="w-32 h-32 rounded-full object-cover"
+              />
+            </div>
+            <div className="flex flex-col">
+              <h3 className="text-lg font-semibold text-white mb-2">
+                {menuItems[3].title.toUpperCase()}
+              </h3>
+              <p className="text-gray-300 text-sm mb-2">
+                {menuItems[3].description}
+              </p>
+              <div className="flex flex-row items-center justify-start gap-3">
+                <div>
+                  <p className="text-white font-bold">{menuItems[3].price}</p>
+                </div>
+                <div>
+                  <button className="cart-btn">
+                    <span className="cart-content text-sm">Add to Cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

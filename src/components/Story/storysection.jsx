@@ -36,7 +36,7 @@ function StorySection() {
 
       <div className="story-split gap-10 w-full">
         <div
-          className="story-text md:w-1/3 max-w-[80%] mx-auto"
+          className="story-text md:w-1/3 max-w-[100%] mx-auto"
           style={{ width: "30%" }}
         >
           <h2 className="font-normal mb-4" data-aos="fade-up">
@@ -62,7 +62,7 @@ function StorySection() {
             </button>
           </Link>
         </div>
-        <div className="max-w-[80%] mx-auto" style={{ width: "50%" }}>
+        <div className="max-w-[100%] mx-auto" style={{ width: "50%" }}>
           <RotatingCircleImage
             dimmedImageSrc={storyFoodImage}
             overlayImageSrc={wrapsImage}

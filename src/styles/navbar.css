@@ -140,14 +140,15 @@
 /* Mobile Menu */
 .navbar-mobile-menu {
   display: none;
+
   flex-direction: column;
   gap: 1.5rem;
   position: fixed;
   top: 0;
   left: 0;
+  margin-top: 0px;
   width: 100%;
-  height: 100vh; 
-  background-color: #dc2626; 
+  background-color: rgba(220, 38, 38, 0.85); /* 0.85 = 85% opacity */
   padding: 4rem 1rem;
   z-index: 10;
 }
@@ -165,13 +166,11 @@
     justify-content: flex-start;
   }
 
-  /* On mobile, keep hamburger centered when links are closed */
   .navbar-hamburger-wrapper.links-closed {
     left: 50%;
     transform: translateX(-50%);
   }
 
-  /* Ensure the hamburger is visible above the mobile menu */
   .navbar-hamburger-wrapper {
     z-index: 20;
   }

@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/navbar";
 import wrapsImage from "../../assets/wrapsImage.png";
-import bikeAnimation from "../../assets/delivery-scooter.gif"; // Import the .gif file
+import bikeAnimation from "../../assets/delivery-scooter.gif";
 
 function HeroSection() {
   return (
@@ -13,7 +13,6 @@ function HeroSection() {
         <div className="hero-image-fill" />
       </div>
       <div className="discount-wrapper">
-        {/* New container to align delivery-info and discount-rotator in a row */}
         <div className="discount-delivery-row">
           <div
             className="delivery-info"
@@ -49,7 +48,7 @@ function HeroSection() {
       <div className="hero-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
         <Navbar />
         <div className="hero-split flex flex-col md:flex-row items-left justify-between">
-          <div className="hero-image   lg:w-full md:w-1/2 flex justify-center md:justify-start">
+          <div className="hero-image lg:w-full md:w-1/2 flex justify-center md:justify-start">
             <img
               src={wrapsImage}
               alt="Wraps"
@@ -63,21 +62,21 @@ function HeroSection() {
                 Sean Anyanwu
               </span>
             </h1>
-            <p className="text-gray-300 mb-6 sm:mb-2 lg:text-center text-left  hero-description">
+            <p className="text-gray-300 mb-6 sm:mb-2 lg:text-center text-left hero-description">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore.
             </p>
-            <div className="flex flex-col   sm:flex-row gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <div>
                 <Link to="/order">
-                  <button className="bg-red-600 order button text-white   sm:px-3 sm:py-1 sm:text-sm md:px-6 md:py-3 rounded-full hover:bg-red-700 transition font-medium">
+                  <button className="bg-red-600 order button text-white sm:px-3 sm:py-1 sm:text-sm md:px-6 md:py-3 rounded-full hover:bg-red-700 transition font-medium">
                     Order Now
                   </button>
                 </Link>
               </div>
               <div>
                 <Link to="/menu">
-                  <button className="bg-red-600 order button text-white   sm:px-3 sm:py-1 sm:text-sm md:px-6 md:py-3 rounded-full hover:bg-red-700 transition font-medium">
+                  <button className="bg-red-600 order button text-white sm:px-3 sm:py-1 sm:text-sm md:px-6 md:py-3 rounded-full hover:bg-red-700 transition font-medium">
                     Go to Our Menu
                   </button>
                 </Link>

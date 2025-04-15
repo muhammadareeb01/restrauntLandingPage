@@ -1,5 +1,4 @@
 import React from "react";
-import { FaPaperPlane } from "react-icons/fa";
 import "../../styles/footer.css";
 function Newsletter() {
   return (
@@ -33,8 +32,6 @@ function Newsletter() {
             </div>
           </div>
         </button>
-
-        {/* <FaPaperPlane className="text-white plan text-lg" /> */}
       </form>
     </div>
   );
