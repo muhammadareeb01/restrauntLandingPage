@@ -1,9 +1,7 @@
-// src/components/MenuSection.js
 import React from "react";
-import "../../styles/menu.css"; // Import the dedicated CSS file
+import "../../styles/menu.css";
 
-// Placeholder images (replace with your actual images)
-import menuImage1 from "../../assets/image.png"; // Replace with your image paths
+import menuImage1 from "../../assets/image.png";
 import menuImage2 from "../../assets/image.png";
 import menuImage3 from "../../assets/image.png";
 import menuImage4 from "../../assets/image.png";
@@ -39,7 +37,7 @@ function MenuSection() {
   return (
     <div className="menu-section relative bg-white">
       {/* Red background with U-shaped curve at the top */}
-      <div className="menu-top-curve"></div> 
+      <div className="menu-top-curve"></div>
       <div className="menu-red-curve absolute inset-x-0 bottom-0 h-[90%] bg-red-600 z-0"></div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -48,16 +46,20 @@ function MenuSection() {
           <span className="block text-3xl sm:text-4xl lg:text-5xl font-normal text-white">
             View Our
           </span>
-          <span className="block text-5xl sm:text-6xl lg:text-7xl font-bold text-white">
+          <span className="block text-7xl sm:text-6xl lg:text-9xl font-medium text-white">
             MENU
+          </span>
+          <span className="block text-2xl sm:text-2xl lg:text-2xl w-1/2 mx-auto font-light text-white">
+            loremlsdhfksjdhk hksjdhfsjk,h nksdhfiljks nljksdbfils jjoisfuoi
+            nkwdjfhbhj bsdhuflgwi jbwhldfblhuj bl\fh
           </span>
         </h2>
 
-        {/* Menu Items Grid */}
         <div className="menu-grid grid grid-cols-2 gap-6">
           {menuItems.map((item, index) => (
-            <div key={index} className="menu-item flex flex items-center p-4">
+            <div key={index} className="menu-item flex items-center p-4">
               <div className="menu-image-wrapper mr-4">
+                <div className="menu-image-inner"> </div>
                 <img
                   src={item.image}
                   alt={item.title}
@@ -69,16 +71,15 @@ function MenuSection() {
                   {item.title}
                 </h3>
                 <p className="text-gray-300 text-sm mb-2">{item.description}</p>
-            <div className="flex flex-row  align-center items-center  justify-start gap-3">
-                <div>
-                <p className="text-white font-bold ">{item.price}</p>
-                </div>
-                <div>
-                <button class="cart-btn">
-  <span class="cart-content text-sm">Add to Cart  </span>
-</button>
-
-                </div>
+                <div className="flex flex-row items-center justify-start gap-3">
+                  <div>
+                    <p className="text-white font-bold">{item.price}</p>
+                  </div>
+                  <div>
+                    <button className="cart-btn">
+                      <span className="cart-content text-sm">Add to Cart</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
