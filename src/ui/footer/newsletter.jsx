@@ -15,7 +15,7 @@ function Newsletter() {
           className="w-full p-2 rounded-l-md text-black focus:outline-none"
         />
 
-        <button className="bg-red-500 p-2 rounded-r-md hover:bg-red-600 transition-colors">
+        <button className="bg-red-500 p-2 footer-btn rounded-r-md hover:bg-red-600 transition-colors">
           <div class="svg-wrapper-1">
             <div class="svg-wrapper">
               <svg

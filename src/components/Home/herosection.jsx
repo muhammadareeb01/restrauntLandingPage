@@ -37,7 +37,7 @@ function HeroSection() {
               data-aos-delay="300"
             >
               <span className="text-5xl discount-percentage sm:text-lg">
-                20{" "}
+                20
               </span>
               <p className="text-2xl discount-off sm:text-xl">
                 % <p className="text-2xl sm:text-xl discount-off">OFF</p>
