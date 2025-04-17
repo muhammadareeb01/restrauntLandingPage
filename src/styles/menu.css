@@ -2,8 +2,9 @@
 .menu-section {
   position: relative;
   min-height: 600px;
-  /* overflowx: hidden; */
   width: 100%;
+  overflow-x: hidden;
+  z-index: 2; /* Ensure the menu section is above the testimonials section */
 }
 
 .menu-curve-wrapper {
@@ -22,12 +23,13 @@
   height: 500px;
   z-index: 9999;
 }
+
 .menu-section h2 {
   z-index: 1;
   position: relative;
 }
 
-/*  curved top */
+/* Curved top */
 .menu-top-curve {
   position: absolute;
   top: 0;
@@ -39,7 +41,7 @@
   z-index: 1;
 }
 
-/* Food image  on top righytttt */
+/* Food image on top right */
 .food-image-decoration {
   position: absolute;
   top: -80px;
@@ -61,7 +63,7 @@
   gap: 0;
 }
 
-/*  BTN DESIGN MENU  btn  */
+/* BTN DESIGN MENU btn */
 .menu-btn {
   position: relative;
   padding: 8px 15px;
@@ -175,7 +177,7 @@
   grid-row: 3;
 }
 
-/* Dotted Dividers---Now using SVG. :( */
+/* Dotted Dividers */
 .dotted-divider.vertical.top {
   grid-column: 2;
   grid-row: 1;
@@ -300,10 +302,83 @@
   pointer-events: none;
 }
 
-/* Responsive  */
+/* Side Images Container (Below Menu Items) */
+.menu-side-images {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3; /* Ensure the container is above the testimonials section */
+}
+
+.menu-side-image-left,
+.menu-side-image-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.menu-side-image-left img {
+  position: relative;
+  bottom: -70px; /* Move the image downward to overlap with the TestimonialsSection */
+  left: -20px;
+  z-index: 9999999 !important; /* Ensure it appears on top of the TestimonialsSection */
+}
+
+.menu-side-image-right {
+  position: relative;
+  justify-content: flex-start; /* Align the right image to the right */
+}
+
+.menu-side-image-right img {
+  position: relative;
+  bottom: 0px; /* Move the image downward to overlap with the TestimonialsSection */
+  z-index: 9999999 !important; /* Ensure it appears on top of the TestimonialsSection */
+}
+
+.menu-side-image-left img,
+.menu-side-image-right img {
+  width: 500px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Smoke Canvas for Right Image */
+.smoke-canvas {
+  position: absolute;
+  bottom: -70px; /* Match the image's bottom position to overlap with TestimonialsSection */
+  left: auto;
+  right: 0; /* Align the smoke canvas with the right image */
+  width: 400px;
+  height: 400px;
+  z-index: 9999998 !important; /* Just below the image but above TestimonialsSection */
+  pointer-events: none;
+}
+
+/* Responsive */
 @media (max-width: 1024px) {
   .menu-section {
     min-height: 500px;
+  }
+
+  .menu-side-image-left img,
+  .menu-side-image-right img {
+    width: 250px;
+  }
+
+  .menu-side-image-left img {
+    bottom: -50px; /* Adjust for smaller screens */
+  }
+
+  .menu-side-image-right img {
+    bottom: -50px; /* Adjust for smaller screens */
+  }
+
+  .smoke-canvas {
+    bottom: -50px; /* Match the image's bottom position */
+    width: 250px;
+    height: 250px;
   }
 }
 
@@ -427,6 +502,31 @@
     padding: 0.5rem 1rem;
     font-size: 0.675rem;
   }
+
+  .menu-side-images {
+    flex-direction: row;
+    gap: 2rem;
+    padding: 1rem 0;
+  }
+
+  .menu-side-image-left img,
+  .menu-side-image-right img {
+    width: 200px;
+  }
+
+  .menu-side-image-left img {
+    bottom: -40px; /* Adjust for smaller screens */
+  }
+
+  .menu-side-image-right img {
+    bottom: -40px; /* Adjust for smaller screens */
+  }
+
+  .smoke-canvas {
+    bottom: -40px; /* Match the image's bottom position */
+    width: 200px;
+    height: 200px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -511,6 +611,25 @@
     padding: 0.5rem 0.45rem;
     font-size: 0.55rem;
   }
+
+  .menu-side-image-left img,
+  .menu-side-image-right img {
+    width: 150px;
+  }
+
+  .menu-side-image-left img {
+    bottom: -30px; /* Adjust for smaller screens */
+  }
+
+  .menu-side-image-right img {
+    bottom: -30px; /* Adjust for smaller screens */
+  }
+
+  .smoke-canvas {
+    bottom: -30px; /* Match the image's bottom position */
+    width: 150px;
+    height: 150px;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -527,6 +646,7 @@
     width: 70% !important;
     height: 70% !important;
   }
+
   .menu-top-curve {
     position: absolute;
     top: 0;

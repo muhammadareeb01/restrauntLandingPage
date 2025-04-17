@@ -2,12 +2,15 @@ import React from "react";
 import TestimonialSlider from "../../ui/slider";
 import { testimonials } from "../../data/testimonialsData";
 import wrapImage from "../../assets/left.jpg";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
+import '../../styles/test.css'
 function TestimonialSection() {
   return (
-    <section className="bg-gray-100 w-full overflow-hidden">
+    <section className="bg-gray-100 w-full overflow-hidden relative">
       <div className="w-full">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-[20px] md:gap-6 lg:gap-8">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-[20px] md:gap-6 lg:gap-8 relative">
+          {/* Left Div: Image */}
           <div className="w-full lg:w-1/2" data-aos="fade-right">
             <img
               src={wrapImage}
@@ -16,6 +19,12 @@ function TestimonialSection() {
             />
           </div>
 
+          {/* Quotation Mark Box */}
+          <div className="absolute quotation-box hidden lg:block">
+            <FontAwesomeIcon icon={faQuoteLeft} className="text-white text-2xl" />
+          </div>
+
+          {/* Right Div: Testimonial Content */}
           <div
             className="w-full lg:w-1/2 flex flex-col items-center justify-center text-center lg:items-start lg:text-left px-4 sm:px-6 md:px-8 py-6"
             data-aos="fade-left"

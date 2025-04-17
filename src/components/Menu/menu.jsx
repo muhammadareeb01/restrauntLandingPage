@@ -4,6 +4,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../../styles/menu.css";
 import menuItems from "../../data/menudata";
 import foodImage from "../../assets/menubg.png";
+import grilledMeatImage from "../../assets/wrapsImage.png"; // Replace with actual path
+import shawarmaWrapImage from "../../assets/shawarma.png"; // Replace with actual path
+
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,13 +16,13 @@ function MenuSection() {
 
   const categories = ["Shawarma", "Grilled Meat", "Grilled Chicken"];
 
-  // Filter menu items based on the selected category
   const filteredItems =
     filter === "All"
       ? menuItems
       : menuItems.filter((item) => item.category === filter);
 
-  // GSAP animation for SVG paths on scroll
+
+  // GSAP animation for dotted dividers
   useEffect(() => {
     const paths = menuRef.current.querySelectorAll(".divider-path");
 
@@ -61,7 +64,7 @@ function MenuSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto  px-4 sm:px-6 lg:px-8 py-12">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-center mb-6">
           <span className="block text-3xl sm:text-4xl lg:text-5xl font-normal text-white">
             View Our
@@ -92,14 +95,11 @@ function MenuSection() {
         <div className="menu-grid">
           {filteredItems.map((item, index) => {
             let gridPosition = "";
-            if (index === 0) gridPosition = "top-left"; // Grid position 1
-            else if (index === 1) gridPosition = "top-right"; // Grid position 3
-            else if (index === 2)
-              gridPosition = "bottom-left"; // Grid position 6
-            else if (index === 3)
-              gridPosition = "bottom-right"; // Grid position 8
+            if (index === 0) gridPosition = "top-left";
+            else if (index === 1) gridPosition = "top-right";
+            else if (index === 2) gridPosition = "bottom-left";
+            else if (index === 3) gridPosition = "bottom-right";
             else if (index >= 4) {
-              // For items beyond the first 4, cycle through the positions
               const cycleIndex = (index - 4) % 4;
               if (cycleIndex === 0) gridPosition = "top-left";
               else if (cycleIndex === 1) gridPosition = "top-right";
@@ -146,7 +146,6 @@ function MenuSection() {
                   </div>
                 </div>
 
-                {/* Add SVG dividers dynamically */}
                 {index === 0 && filteredItems.length > 1 && (
                   <div className="dotted-divider vertical top">
                     <svg width="1" height="100%" preserveAspectRatio="none">
@@ -204,7 +203,6 @@ function MenuSection() {
                     </svg>
                   </div>
                 )}
-                {/* Add additional vertical dividers for items beyond the first 4 */}
                 {index >= 4 &&
                   index % 2 === 0 &&
                   filteredItems.length > index + 1 && (
@@ -259,6 +257,25 @@ function MenuSection() {
               </React.Fragment>
             );
           })}
+        </div>
+      </div>
+
+      {/* Side Images After Menu Items */}
+      <div className="menu-side-images flex justify-between mt-8">
+        <div className="menu-side-image-left">
+          <img
+            src={grilledMeatImage}
+            alt="Grilled Meat"
+            style={{ zIndex: 9999999 }}
+          />
+        </div>
+        <div className="menu-side-image-right relative">
+          <img
+            src={shawarmaWrapImage}
+            alt="Shawarma Wrap"
+            style={{ zIndex: 9999999 }}
+          />
+        
         </div>
       </div>
     </div>
