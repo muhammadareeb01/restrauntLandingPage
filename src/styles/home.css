@@ -197,7 +197,7 @@
 
 .hero-text {
   /* flex: 1; */
-  width: 50% !important;
+  width: 70%   !important;
   /* margin: ; */
   margin-top: -3rem;
   text-align: center;
@@ -358,6 +358,7 @@
 .btn-div {
   width: 60%;
 }
+
 /* Responsive Styles */
 @media (max-width: 1400px) {
   .hero-description {
@@ -459,7 +460,7 @@
 
   .order {
     font-size: 0.9rem !important;
-    padding: 0.6rem 1.2rem;
+    padding: 0.8rem 1.2rem !important;
   }
 }
 
@@ -467,6 +468,7 @@
   .btn-div {
     width: 100%;
   }
+
   .hero-section {
     min-height: 600px;
   }
@@ -488,7 +490,7 @@
   }
 
   .discount-delivery-row {
-    top: 80%;
+    top: 85% ;
     gap: 0.75rem;
   }
 
@@ -509,6 +511,7 @@
   .btn-div {
     width: 100%;
   }
+
   .hero-content {
     /* padding: 0.75rem 0; */
   }
@@ -637,7 +640,7 @@
   }
 
   .discount-delivery-row {
-    top: 87%;
+    top: 85%;
     gap: 0.5rem;
     flex-wrap: nowrap;
     width: 90%;
@@ -666,6 +669,13 @@
     /* padding: 0.5rem 0; */
   }
 
+
+
+  
+  .order {
+    font-size: 0.7rem !important;
+    padding: 0.5rem 0.3rem !important;
+  }
   .hero-split {
     flex-direction: column;
     gap: 0.5rem;
@@ -699,7 +709,7 @@
   }
 
   .discount-box {
-    padding: 0.3rem 0.6rem;
+    padding: 0rem 0rem !important;
   }
 
   .discount-percentage {
@@ -711,8 +721,8 @@
   }
 
   .bike-icon {
-    width: 5rem;
-    height: 5rem;
+    width: 3rem;
+    height: 3rem;
   }
 
   .delivery-text {
@@ -804,9 +814,20 @@
   }
 }
 
+@media (max-width: 700px) {
+  .discount-delivery-row {
+    top: 87%; /* Moved slightly downward from 85% */
+  }
+
+  .hero-text .flex a {
+    font-size: 0.9rem; /* Slightly larger font size for buttons */
+    padding: 0.75rem 1rem; /* Increased padding for buttons */
+  }
+}
+
 @media (max-width: 600px) {
   .discount-delivery-row {
-    top: 87%;
+    top: 85%; /* Reduced from 85% to bring it closer to the top */
   }
 }
 
@@ -816,7 +837,9 @@
   }
 
   .discount-delivery-row {
-    top: 87%;
+    top: 87%  ;
+    gap: 0.4rem;
+    width: 95%; /* Reduced from 85% to bring it closer to the top */
   }
 
   .hero-red-curve {
@@ -835,11 +858,6 @@
     border-radius: 0 0 25% 25% / 0 0 50% 50%;
   }
 
-  .discount-delivery-row {
-    /* top: 92%; */
-    gap: 0.4rem;
-    width: 95%;
-  }
 
   .hero-text h1 {
     font-size: 2rem;
@@ -866,8 +884,8 @@
   }
 
   .discount-box {
-    padding: 0.2rem 0.5rem;
-    display: inline !important;
+    padding: 0.3rem 0.4rem !important;
+    /* display: inline !important; */
   }
 
   .discount-percentage {
@@ -879,12 +897,12 @@
   }
 
   .bike-icon {
-    width: 3rem;
-    height: 3rem;
+    width: 2rem; /* Increased from 1.5rem */
+    height: 2rem; /* Increased from 1.5rem */
   }
 
   .delivery-text {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
   }
 
   .delivery-text .available {
