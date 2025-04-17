@@ -1,10 +1,12 @@
+import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./App.css";
+import AOS from "aos";
+import "aos/dist/aos.css"; 
 import Navbar from "./components/Navbar/navbar";
 import Footer from "./components/Footer/footer";
 import Home from "./components/Home/home";
-import TestimonialsSection from "./components/Testimonials/TestimonialsSection";
 
 function Menu() {
   return (
@@ -48,6 +50,14 @@ function ContactUs() {
 
 function App() {
   const location = useLocation();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      offset: 100,
+    });
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">

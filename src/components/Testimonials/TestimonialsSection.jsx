@@ -1,6 +1,6 @@
 import React from "react";
 import TestimonialSlider from "../../ui/slider";
-import { testimonials } from "../../data/data";
+import { testimonials } from "../../data/testimonialsData";
 import wrapImage from "../../assets/left.jpg";
 
 function TestimonialSection() {

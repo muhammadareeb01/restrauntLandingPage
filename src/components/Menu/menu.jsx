@@ -4,13 +4,9 @@ import menuItems from "../../data/menudata"; // Import the data
 
 function MenuSection() {
   return (
-    <div className="menu-section relative bg-white">
-      {/* Red background with U-shaped curve at the top */}
-      <div className="menu-top-curve"></div>
-      <div className="menu-red-curve absolute inset-x-0 bottom-0 h-[90%] bg-red-600 z-0"></div>
-
+    <div className="menu-section relative " style={{ background: "#e6413b" }}>
+      <div className="menu-curve-wrapper"> </div>
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Title */}
         <h2 className="text-center mb-12">
           <span className="block text-3xl sm:text-4xl lg:text-5xl font-normal text-white">
             View Our
@@ -24,7 +20,6 @@ function MenuSection() {
         </h2>
 
         <div className="menu-grid">
-          {/* Row 1: Items 1, Vertical Divider (Top), Item 2 */}
           <div
             className="menu-item flex items-center p-4"
             data-aos="fade-left"
@@ -93,12 +88,10 @@ function MenuSection() {
             </div>
           </div>
 
-          {/* Row 2: Horizontal Dividers (Left and Right) */}
           <div className="dotted-divider horizontal left"></div>
           <div className="divider-gap"></div>
           <div className="dotted-divider horizontal right"></div>
 
-          {/* Row 3: Items 3, Vertical Divider (Bottom), Item 4 */}
           <div
             className="menu-item flex items-center p-4"
             data-aos="fade-left"

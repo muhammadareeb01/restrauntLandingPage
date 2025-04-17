@@ -6,33 +6,30 @@
     width: 100%;
   }
   
-  /* Red background with U-shaped curve at the top */
-  .menu-red-curve {
-    width: 100%;
-    height: 90%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: #e6413b;
-    z-index: 0;
-  }
-  
-  .menu-top-curve {
-    width: 100%;
-    height: 160px;
-    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 160" xmlns="http://www.w3.org/2000/svg"><path fill="%23e6413b" d="M0,0 C480,150 960,150 1440,0 L1440,160 L0,160 Z"/></svg>')
-      no-repeat center top;
-    background-size: cover;
-    z-index: 1;
-  }
-  
+
+
+  /* Create a clean red background with a top curve */
+.menu-curve-wrapper {
+  position: relative;
+  background-color: #fff;
+  padding-top: 160px;
+  clip-path: ellipse(100% 100% at 50% 0%);
+  z-index: 0;
+}
+
+.menu-section h2 {
+  z-index: 1;
+  position: relative;
+}
+
+
   /* Menu Grid */
   .menu-grid {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 12px 1fr; /* Two columns for items, narrow middle for vertical divider */
-    grid-template-rows: auto 12px auto; /* Two rows for items, narrow middle for horizontal divider */
-    gap: 0; /* Remove gap to control spacing manually */
+    grid-template-columns: 1fr 12px 1fr;
+    grid-template-rows: auto 12px auto; 
+    gap: 0; 
   }
   
   /* Menu Item */
@@ -68,7 +65,7 @@
     grid-column: 2;
     grid-row: 1;
     width: 1px;
-    height: 80%; /* Reduced height to create gap */
+    height: 90%; /* Reduced height to create gap */
     background-image: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0.5) 50%,
@@ -84,7 +81,7 @@
     grid-column: 2;
     grid-row: 3;
     width: 1px;
-    height: 80%; /* Reduced height to create gap */
+    height: 90%; /* Reduced height to create gap */
     background-image: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0.5) 50%,
@@ -99,7 +96,7 @@
   .dotted-divider.horizontal.left {
     grid-column: 1;
     grid-row: 2;
-    width: 80%; /* Reduced width to create gap */
+    width:90%; /* Reduced width to create gap */
     height: 1px;
     background-image: linear-gradient(
       to right,
@@ -108,13 +105,13 @@
     );
     background-size: 10px 1px;
     background-repeat: repeat-x;
-    margin: 0 0 0 auto; /* Align to right side */
+    margin: 5px 0 0 auto; /* Align to right side */
   }
   
   .dotted-divider.horizontal.right {
     grid-column: 3;
     grid-row: 2;
-    width: 80%; /* Reduced width to create gap */
+    width: 90%; /* Reduced width to create gap */
     height: 1px;
     background-image: linear-gradient(
       to right,
@@ -123,7 +120,7 @@
     );
     background-size: 10px 1px;
     background-repeat: repeat-x;
-    margin: 0 auto 0 0; /* Align to left side */
+    margin: 5px auto 0 0; /* Align to left side */
   }
   
   .divider-gap {
@@ -142,7 +139,7 @@
     flex-shrink: 0;
   }
   
-  /* Cart Button */
+  /* Add to card  Button */
   .cart-btn {
     position: relative;
     overflow: hidden;
@@ -216,10 +213,7 @@
       min-height: 500px;
     }
   
-    .menu-red-curve {
-      height: 85%;
-      border-radius: 45% 45% 0 0 / 90% 90% 0 0;
-    }
+   
   }
   
   @media (max-width: 768px) {
@@ -228,17 +222,16 @@
       background-color: #e6413b;
     }
   
-    .menu-red-curve {
-      height: 100%;
-      border-radius: 0;
-      background-color: #e6413b;
-      top: 0;
-      bottom: auto;
-    }
   
-    .menu-top-curve {
-      display: none;
+    .menu-curve-wrapper {
+      position: relative;
+      background-color: #fff;
+      padding-top: 160px;
+      clip-path: ellipse(100% 100% at 50% 0%);
+      z-index: 0;
     }
+    
+    
   
     .menu-grid {
       display: flex;
@@ -351,17 +344,8 @@
       background-color: #e6413b;
     }
   
-    .menu-red-curve {
-      height: 100%;
-      border-radius: 0;
-      background-color: #e6413b;
-      top: 0;
-      bottom: auto;
-    }
   
-    .menu-top-curve {
-      display: none;
-    }
+  
   
     .menu-grid {
       gap: 1rem;
@@ -436,3 +420,6 @@
       padding: 0 0.75rem;
     }
   }
+
+
+
