@@ -45,28 +45,28 @@ function HeroSection() {
           </div>
         </div>
       </div>
-      <div className="hero-content max-w-7xl mx-auto  z-10 relative">
+      <div className="hero-content w-full mx-auto  z-10 relative">
         <Navbar />
         <div className="hero-split flex flex-col md:flex-row items-left justify-between">
-          <div className="hero-image lg:w-full md:w-1/2 flex justify-center md:justify-start">
+          <div className="hero-image lg:w-w-1/2 md:w-1/2 flex justify-center md:justify-start">
             <img
               src={wrapsImage}
               alt="Wraps"
               className="w-3/4 md:w-3/4 max-w-md object-contain hero-image-content"
             />
           </div>
-          <div className="hero-text w-full md:w-1/2 lg:text-center text-left">
+          <div className="hero-text w-1/2 md:w-1/2 lg:text-center text-left">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               <span className="block h1">Welcome to</span>
               <span className="block h2" style={{ color: "#E6413B" }}>
                 Sean Anyanwu
               </span>
             </h1>
-            <p className="text-gray-300 mb-6 sm:mb-2 lg:text-center text-left hero-description">
+            <p className="text-gray-300 mb-6 sm:mb-2 sm:text-center lg:text-center  hero-description">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center btn-div"  >
               <div>
                 <Link to="/order">
                   <button className="bg-red-600 order button text-white sm:px-3 sm:py-1 sm:text-sm md:px-6 md:py-3 rounded-full hover:bg-red-700 transition font-medium">
