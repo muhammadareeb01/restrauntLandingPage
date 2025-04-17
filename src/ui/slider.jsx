@@ -53,7 +53,7 @@ function TestimonialSlider({ testimonials }) {
 
           // width:80%;
             text-align: left;
-          }
+          }=
 
           .testimonial-slide p {
             margin: 0; /* Ensure no extra margins interfere with positioning */

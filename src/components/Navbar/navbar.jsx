@@ -5,7 +5,7 @@ import logo from "../../assets/logo.jpg";
 import "../../styles/navbar.css";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(true); // Default to closed
+  const [isOpen, setIsOpen] = useState(true);
   const [activeLink, setActiveLink] = useState("/");
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -13,7 +13,7 @@ function Navbar() {
   const toggleMenu = () => {
     setIsOpen((prev) => {
       const newState = !prev;
-      console.log("checking...............", newState); // Debug log
+      console.log("checking...............", newState);
       return newState;
     });
   };
@@ -90,20 +90,12 @@ function Navbar() {
       } bg-transparent`}
     >
       <div className="navbar-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div
-          className={`navbar-hamburger-wrapper ${
-            isOpen ? "links-open" : "links-closed"
-          }`}
-        >
-          <div
-            className={`navbar-hamburger ${isOpen ? "open" : "closed"}`}
-            onClick={toggleMenu}
-          >
-            <span className="hamburger-line top"></span>
-            <span className="hamburger-line middle"></span>
-            <span className="hamburger-line bottom"></span>
-          </div>
-        </div>
+        <label htmlFor="check" className={`navbar-hamburger-wrapper ${isOpen ? "open" : "closed"}`}>
+          <input type="checkbox" id="check" checked={isOpen} onChange={toggleMenu} />
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -114,6 +106,12 @@ function Navbar() {
               exit="closed"
               variants={linkVariants}
             >
+              {/* <label htmlFor="check" className="navbar-hamburger-wrapper inside-links">
+                <input type="checkbox" id="check" checked={isOpen} onChange={toggleMenu} />
+                <span></span>
+                <span></span>
+                <span></span>
+              </label> */}
               <div className="navbar-links-left">
                 {navLinksLeft.map((link) => (
                   <NavLink

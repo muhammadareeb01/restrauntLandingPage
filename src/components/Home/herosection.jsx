@@ -45,7 +45,7 @@ function HeroSection() {
           </div>
         </div>
       </div>
-      <div className="hero-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
+      <div className="hero-content max-w-7xl mx-auto  z-10 relative">
         <Navbar />
         <div className="hero-split flex flex-col md:flex-row items-left justify-between">
           <div className="hero-image lg:w-full md:w-1/2 flex justify-center md:justify-start">
