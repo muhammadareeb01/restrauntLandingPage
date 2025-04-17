@@ -50,6 +50,8 @@ function HeroSection() {
         <div className="hero-split flex flex-col md:flex-row items-left justify-between">
           <div className="hero-image lg:w-w-1/2 md:w-1/2 flex justify-center md:justify-start">
             <img
+              data-aos="zoom-in"
+              data-aos-delay="200"
               src={wrapsImage}
               alt="Wraps"
               className="w-3/4 md:w-3/4 max-w-md object-contain hero-image-content"
@@ -66,7 +68,7 @@ function HeroSection() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center btn-div"  >
+            <div className="flex flex-col sm:flex-row gap-6 justify-center btn-div">
               <div>
                 <Link to="/order">
                   <button className="bg-red-600 order button text-white sm:px-3 sm:py-1 sm:text-sm md:px-6 md:py-3 rounded-full hover:bg-red-700 transition font-medium">

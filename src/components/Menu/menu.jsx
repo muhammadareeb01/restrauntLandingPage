@@ -1,13 +1,68 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../../styles/menu.css";
-import menuItems from "../../data/menudata"; // Import the data
+import menuItems from "../../data/menudata";
+import foodImage from "../../assets/menubg.png";
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
 
 function MenuSection() {
+  const [filter, setFilter] = useState("Shawarma");
+  const menuRef = useRef(null);
+
+  const categories = ["Shawarma", "Grilled Meat", "Grilled Chicken"];
+
+  // Filter menu items based on the selected category
+  const filteredItems =
+    filter === "All"
+      ? menuItems
+      : menuItems.filter((item) => item.category === filter);
+
+  // GSAP animation for SVG paths on scroll
+  useEffect(() => {
+    const paths = menuRef.current.querySelectorAll(".divider-path");
+
+    paths.forEach((path) => {
+      gsap.fromTo(
+        path,
+        { drawSVG: "0%" },
+        {
+          drawSVG: "100%",
+          duration: 1,
+          color: "white",
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: path,
+            start: "top 80%",
+            end: "bottom 20%",
+            scrub: true,
+          },
+        }
+      );
+    });
+  }, [filteredItems]);
+
   return (
-    <div className="menu-section relative " style={{ background: "#e6413b" }}>
-      <div className="menu-curve-wrapper"> </div>
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="text-center mb-12">
+    <div
+      className="menu-section relative"
+      style={{ background: "#e6413b" }}
+      ref={menuRef}
+    >
+      <div className="menu-top-curve"></div>
+
+      {/* Food image on top */}
+      <div className="food-image-decoration">
+        <img
+          src={foodImage}
+          alt="Delicious Food"
+          data-aos-delay="200"
+          data-aos="zoom-in"
+        />
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto  px-4 sm:px-6 lg:px-8 py-12">
+        <h2 className="text-center mb-6">
           <span className="block text-3xl sm:text-4xl lg:text-5xl font-normal text-white">
             View Our
           </span>
@@ -19,146 +74,191 @@ function MenuSection() {
           </span>
         </h2>
 
+        {/* Filter Buttons */}
+        <div className="filter-buttons flex justify-center gap-0 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`filter-btn menu-btn ${
+                filter === category ? "active" : ""
+              }`}
+              onClick={() => setFilter(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         <div className="menu-grid">
-          <div
-            className="menu-item flex items-center p-4"
-            data-aos="fade-left"
-            data-aos-delay="0"
-          >
-            <div className="menu-image-wrapper mr-4">
-              <div className="menu-image-inner"></div>
-              <img
-                src={menuItems[0].image}
-                alt={menuItems[0].title}
-                className="w-32 h-32 rounded-full object-cover"
-              />
-            </div>
-            <div className="flex flex-col">
-              <h3 className="text-lg font-semibold text-white mb-2">
-                {menuItems[0].title.toUpperCase()}
-              </h3>
-              <p className="text-gray-300 text-sm mb-2">
-                {menuItems[0].description}
-              </p>
-              <div className="flex flex-row items-center justify-start gap-3">
-                <div>
-                  <p className="text-white font-bold">{menuItems[0].price}</p>
-                </div>
-                <div>
-                  <button className="cart-btn">
-                    <span className="cart-content text-sm">Add to Cart</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          {filteredItems.map((item, index) => {
+            let gridPosition = "";
+            if (index === 0) gridPosition = "top-left"; // Grid position 1
+            else if (index === 1) gridPosition = "top-right"; // Grid position 3
+            else if (index === 2)
+              gridPosition = "bottom-left"; // Grid position 6
+            else if (index === 3)
+              gridPosition = "bottom-right"; // Grid position 8
+            else if (index >= 4) {
+              // For items beyond the first 4, cycle through the positions
+              const cycleIndex = (index - 4) % 4;
+              if (cycleIndex === 0) gridPosition = "top-left";
+              else if (cycleIndex === 1) gridPosition = "top-right";
+              else if (cycleIndex === 2) gridPosition = "bottom-left";
+              else if (cycleIndex === 3) gridPosition = "bottom-right";
+            }
 
-          <div className="dotted-divider vertical top"></div>
+            return (
+              <React.Fragment key={index}>
+                <div
+                  className={`menu-item flex items-center p-4 ${gridPosition}`}
+                  data-aos={
+                    gridPosition.includes("left") ? "fade-left" : "fade-right"
+                  }
+                  data-aos-delay={index * 100}
+                >
+                  <div className="menu-image-wrapper mr-4">
+                    <div className="menu-image-inner"></div>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-32 h-32 rounded-full object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <h3 className="text-lg font-semibold text-white mb-2">
+                      {item.title.toUpperCase()}
+                    </h3>
+                    <p className="text-gray-300 text-sm mb-2">
+                      {item.description}
+                    </p>
+                    <div className="flex flex-row items-center justify-start gap-3">
+                      <div>
+                        <p className="text-white font-bold">{item.price}</p>
+                      </div>
+                      <div>
+                        <button className="cart-btn">
+                          <span className="cart-content text-sm">
+                            Add to Cart
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-          <div
-            className="menu-item flex items-center p-4"
-            data-aos="fade-right"
-            data-aos-delay="100"
-          >
-            <div className="menu-image-wrapper mr-4">
-              <div className="menu-image-inner"></div>
-              <img
-                src={menuItems[1].image}
-                alt={menuItems[1].title}
-                className="w-32 h-32 rounded-full object-cover"
-              />
-            </div>
-            <div className="flex flex-col">
-              <h3 className="text-lg font-semibold text-white mb-2">
-                {menuItems[1].title.toUpperCase()}
-              </h3>
-              <p className="text-gray-300 text-sm mb-2">
-                {menuItems[1].description}
-              </p>
-              <div className="flex flex-row items-center justify-start gap-3">
-                <div>
-                  <p className="text-white font-bold">{menuItems[1].price}</p>
-                </div>
-                <div>
-                  <button className="cart-btn">
-                    <span className="cart-content text-sm">Add to Cart</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="dotted-divider horizontal left"></div>
-          <div className="divider-gap"></div>
-          <div className="dotted-divider horizontal right"></div>
-
-          <div
-            className="menu-item flex items-center p-4"
-            data-aos="fade-left"
-            data-aos-delay="200"
-          >
-            <div className="menu-image-wrapper mr-4">
-              <div className="menu-image-inner"></div>
-              <img
-                src={menuItems[2].image}
-                alt={menuItems[2].title}
-                className="w-32 h-32 rounded-full object-cover"
-              />
-            </div>
-            <div className="flex flex-col">
-              <h3 className="text-lg font-semibold text-white mb-2">
-                {menuItems[2].title.toUpperCase()}
-              </h3>
-              <p className="text-gray-300 text-sm mb-2">
-                {menuItems[2].description}
-              </p>
-              <div className="flex flex-row items-center justify-start gap-3">
-                <div>
-                  <p className="text-white font-bold">{menuItems[2].price}</p>
-                </div>
-                <div>
-                  <button className="cart-btn">
-                    <span className="cart-content text-sm">Add to Cart</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="dotted-divider vertical bottom"></div>
-
-          <div
-            className="menu-item flex items-center p-4"
-            data-aos="fade-right"
-            data-aos-delay="300"
-          >
-            <div className="menu-image-wrapper mr-4">
-              <div className="menu-image-inner"></div>
-              <img
-                src={menuItems[3].image}
-                alt={menuItems[3].title}
-                className="w-32 h-32 rounded-full object-cover"
-              />
-            </div>
-            <div className="flex flex-col">
-              <h3 className="text-lg font-semibold text-white mb-2">
-                {menuItems[3].title.toUpperCase()}
-              </h3>
-              <p className="text-gray-300 text-sm mb-2">
-                {menuItems[3].description}
-              </p>
-              <div className="flex flex-row items-center justify-start gap-3">
-                <div>
-                  <p className="text-white font-bold">{menuItems[3].price}</p>
-                </div>
-                <div>
-                  <button className="cart-btn">
-                    <span className="cart-content text-sm">Add to Cart</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+                {/* Add SVG dividers dynamically */}
+                {index === 0 && filteredItems.length > 1 && (
+                  <div className="dotted-divider vertical top">
+                    <svg width="1" height="100%" preserveAspectRatio="none">
+                      <path
+                        className="divider-path"
+                        d="M0,0 V1000"
+                        stroke="#fff"
+                        strokeWidth="1"
+                        strokeDasharray="5,5"
+                        fill="none"
+                      />
+                    </svg>
+                  </div>
+                )}
+                {index === 1 && filteredItems.length > 2 && (
+                  <>
+                    <div className="dotted-divider horizontal left">
+                      <svg width="100%" height="1" preserveAspectRatio="none">
+                        <path
+                          className="divider-path"
+                          d="M0,0 H1000"
+                          stroke="#fff"
+                          strokeWidth="1"
+                          strokeDasharray="5,5"
+                          fill="none"
+                        />
+                      </svg>
+                    </div>
+                    <div className="divider-gap"></div>
+                    <div className="dotted-divider horizontal right">
+                      <svg width="100%" height="1" preserveAspectRatio="none">
+                        <path
+                          className="divider-path"
+                          d="M0,0 H1000"
+                          stroke="#fff"
+                          strokeWidth="1"
+                          strokeDasharray="5,5"
+                          fill="none"
+                        />
+                      </svg>
+                    </div>
+                  </>
+                )}
+                {index === 2 && filteredItems.length > 3 && (
+                  <div className="dotted-divider vertical bottom">
+                    <svg width="1" height="100%" preserveAspectRatio="none">
+                      <path
+                        className="divider-path"
+                        d="M0,0 V1000"
+                        stroke="#fff"
+                        strokeWidth="1"
+                        strokeDasharray="5,5"
+                        fill="none"
+                      />
+                    </svg>
+                  </div>
+                )}
+                {/* Add additional vertical dividers for items beyond the first 4 */}
+                {index >= 4 &&
+                  index % 2 === 0 &&
+                  filteredItems.length > index + 1 && (
+                    <div
+                      className={`dotted-divider vertical ${
+                        index % 4 === 0 ? "top" : "bottom"
+                      }`}
+                    >
+                      <svg width="1" height="100%" preserveAspectRatio="none">
+                        <path
+                          className="divider-path"
+                          d="M0,0 V1000"
+                          stroke="#fff"
+                          strokeWidth="1"
+                          strokeDasharray="5,5"
+                          fill="none"
+                        />
+                      </svg>
+                    </div>
+                  )}
+                {index >= 5 &&
+                  index % 2 === 1 &&
+                  filteredItems.length > index + 1 && (
+                    <>
+                      <div className="dotted-divider horizontal left">
+                        <svg width="100%" height="1" preserveAspectRatio="none">
+                          <path
+                            className="divider-path"
+                            d="M0,0 H1000"
+                            stroke="#fff"
+                            strokeWidth="1"
+                            strokeDasharray="5,5"
+                            fill="none"
+                          />
+                        </svg>
+                      </div>
+                      <div className="divider-gap"></div>
+                      <div className="dotted-divider horizontal right">
+                        <svg width="100%" height="1" preserveAspectRatio="none">
+                          <path
+                            className="divider-path"
+                            d="M0,0 H1000"
+                            stroke="#fff"
+                            strokeWidth="1"
+                            strokeDasharray="5,5"
+                            fill="none"
+                          />
+                        </svg>
+                      </div>
+                    </>
+                  )}
+              </React.Fragment>
+            );
+          })}
         </div>
       </div>
     </div>

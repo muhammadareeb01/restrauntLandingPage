@@ -28,7 +28,7 @@
   width: 100%;
 }
 
-/* Hamburger Wrapper (controls position) */
+/* Hamburger Wrapper  */
 .navbar-hamburger-wrapper {
   display: flex;
   flex-direction: column;
@@ -37,18 +37,18 @@
   z-index: 20;
 }
 
-/* Center the hamburger when menu is closed */
+
 .navbar-hamburger-wrapper.closed {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
-/* When menu is open, hamburger inside the links */
+
 .navbar-hamburger-wrapper.inside-links {
   position: static;
   transform: none;
-  margin-right: 1rem; /* Increased from 0.5rem to 1rem for more gap */
+  margin-right: 1rem; 
 }
 
 .navbar-hamburger-wrapper span {

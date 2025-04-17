@@ -1,22 +1,25 @@
-// src/components/Home.js
-import React, { useEffect } from "react";
+import React from "react";
 
-import "aos/dist/aos.css";
 import HeroSection from "./herosection";
 import StorySection from "../Story/storysection";
 import TestimonialsSection from "../Testimonials/TestimonialsSection";
-import "../../styles/home.css";
 import MenuSection from "../Menu/menu";
-
+import "../../styles/home.css";
 function Home() {
-
-
   return (
     <div className="home-page">
-      <HeroSection />
-      <StorySection />
-      <MenuSection/>
-      <TestimonialsSection />
+      <div>
+        <HeroSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <StorySection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <MenuSection />
+      </div>
+      <div>
+        <TestimonialsSection />
+      </div>
     </div>
   );
 }

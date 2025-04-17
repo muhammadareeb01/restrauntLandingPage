@@ -197,7 +197,7 @@
 
 .hero-text {
   /* flex: 1; */
-  width: 70%   !important;
+  width: 70% !important;
   /* margin: ; */
   margin-top: -3rem;
   text-align: center;
@@ -490,7 +490,7 @@
   }
 
   .discount-delivery-row {
-    top: 85% ;
+    top: 85%;
     gap: 0.75rem;
   }
 
@@ -669,9 +669,6 @@
     /* padding: 0.5rem 0; */
   }
 
-
-
-  
   .order {
     font-size: 0.7rem !important;
     padding: 0.5rem 0.3rem !important;
@@ -837,9 +834,9 @@
   }
 
   .discount-delivery-row {
-    top: 87%  ;
+    top: 87%;
     gap: 0.4rem;
-    width: 95%; /* Reduced from 85% to bring it closer to the top */
+    width: 95%;
   }
 
   .hero-red-curve {
@@ -857,7 +854,6 @@
     height: 650px;
     border-radius: 0 0 25% 25% / 0 0 50% 50%;
   }
-
 
   .hero-text h1 {
     font-size: 2rem;
@@ -897,8 +893,8 @@
   }
 
   .bike-icon {
-    width: 2rem; /* Increased from 1.5rem */
-    height: 2rem; /* Increased from 1.5rem */
+    width: 2rem;
+    height: 2rem;
   }
 
   .delivery-text {
@@ -1069,4 +1065,32 @@
 
 .story-text .beautiful-button {
   display: block;
+}
+
+
+
+/* Dotted Path Styling */
+.dotted-path {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.dotted-path path {
+  stroke: #e6413b;
+  stroke-width: 2;
+  stroke-dasharray: 5, 5;
+  fill: none;
+}
+
+/* Ensure the path is hidden on smaller screens if needed */
+@media (max-width: 768px) {
+  .dotted-path {
+    display: none;
+  }
 }
