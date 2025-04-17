@@ -5,7 +5,10 @@ import logo from "../../assets/logo.jpg";
 import "../../styles/navbar.css";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(true);
+  // Set initial state of isOpen based on screen size
+  const [isOpen, setIsOpen] = useState(() => {
+    return window.innerWidth > 768; // true for desktop (>768px), false for mobile (≤768px)
+  });
   const [activeLink, setActiveLink] = useState("/");
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -44,6 +47,19 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
+
+  // Add resize listener to update isOpen when screen size changes
+  useEffect(() => {
+    const handleResize = () => {
+      setIsOpen(window.innerWidth > 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const navLinksLeft = [
     { href: "/", label: "Home" },
@@ -106,12 +122,6 @@ function Navbar() {
               exit="closed"
               variants={linkVariants}
             >
-              {/* <label htmlFor="check" className="navbar-hamburger-wrapper inside-links">
-                <input type="checkbox" id="check" checked={isOpen} onChange={toggleMenu} />
-                <span></span>
-                <span></span>
-                <span></span>
-              </label> */}
               <div className="navbar-links-left">
                 {navLinksLeft.map((link) => (
                   <NavLink
